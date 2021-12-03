@@ -8,6 +8,9 @@
   --header-height: 60px;
   --footer-height: 60px;
   --scrollbar-width: 4px;
+
+  --cardWidth: 250px;
+  --cardHeight: 200px;
 }
 
 body {
