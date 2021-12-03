@@ -16,6 +16,7 @@ import { LayerAccessibilityDirective } from './shared/directives/layer-accessibi
 import { TabbableAccessibilityDirective } from './shared/directives/tabbable-accessibility.directive';
 import { SkipBlockAccessibilityDirective } from './shared/directives/skip-block.directive';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { CarousalComponent } from './components/carousal/carousal.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, RoutingModule],
@@ -34,6 +35,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     ButtonComponent,
     ThemingComponent,
     LandingPageComponent,
+    CarousalComponent,
     LayerAccessibilityDirective,
     BlockAccessibilityDirective,
     TabbableAccessibilityDirective,
