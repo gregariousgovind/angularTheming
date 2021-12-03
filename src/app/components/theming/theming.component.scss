@@ -1,9 +1,9 @@
 .themes-wrapper {
   position: fixed;
-  left: 1px;
+  left: calc(var(--left-panel-width) / 2 - 23.5px);
   bottom: 10px;
-  transform: translate(1px, 2px);
   z-index: 20;
+  transform: all 2s;
 
   section.themes-container {
     position: fixed;
