@@ -14,7 +14,7 @@ export class LeftPanelComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
   public isExpanded: boolean = false;
-  private leftPanelWidth: string = '50px';
+  private leftPanelWidth: string = '80px';
 
   expandCollapse() {
     this.leftPanelWidth = this.isExpanded ? '50px' : '80px';
