@@ -16,6 +16,19 @@
     border-radius: 4px;
     box-shadow: 0 1px 4px var(--box-shadow);
     z-index: 18;
+
+    &::after {
+      content: '';
+      position: fixed;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid var(--theme-color-aerolighter);
+      left: calc(var(--left-panel-width) / 2);
+      bottom: 50px;
+    }
+
     h2 {
       background: var(--theme-color-aerolighter);
       text-align: center;
