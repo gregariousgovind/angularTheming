@@ -3,9 +3,12 @@
   <div class="navigation-container">
     <nav class="header-navigation" id="headerNavigation">
       <a
-        *ngFor="let nav of navigationsConfig"
+        *ngFor="let nav of navigationsConfig.navigations"
         class="nav-item"
         [ngClass]="{ active: nav.id == navigationsConfig.activeId }"
+        role="link"
+        [attr.aria-label]="nav.name"
+        [attr.ariaselected]="nav.id == navigationsConfig.activeId"
         (click)="handleNavigations(nav)"
         >{{ nav.name }}</a
       >
