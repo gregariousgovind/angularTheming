@@ -121,13 +121,12 @@ export class ThemingComponent implements OnInit {
     icon: {
       class: 'fa fa-eye',
       alignedRight: false,
-      tooltip: 'icon',
-      tooltipPosition: 'top',
     },
     styles: {
       'border-radius': '50%',
     },
-    tooltipPosition: 'left',
+    tooltip: 'Change theme',
+    tooltipPosition: 'right',
   };
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}

@@ -2,8 +2,8 @@ export interface IIcon {
   class: string;
   isCombobox?: boolean;
   alignedRight: boolean;
-  tooltip: string;
-  tooltipPosition: string;
+  tooltip?: string;
+  tooltipPosition?: string;
 }
 
 export class IButton {
