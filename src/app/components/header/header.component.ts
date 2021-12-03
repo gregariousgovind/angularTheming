@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'main-header',
@@ -6,7 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private element: ElementRef,
+    private renderer: Renderer2,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  private nav;
+
+  public navigationsConfig = {
+    activeId: 1,
+    navigations: [
+      {
+        id: 1,
+        name: 'contracts',
+        url: '#contracts',
+      },
+    ],
+  };
+
+  ngOnInit() {
+    this.nav = this.element.nativeElement.querySelector('#headerNavigation');
+  }
+
+  handleNavigations(nav) {
+    this.navigationsConfig.activeId = nav.id;
+    this.router.navigateByUrl(nav.url);
+  }
+
+  openMenu() {
+    if (this.nav.className === 'header-navigation') {
+      this.renderer.addClass(this.nav, 'expanded');
+    } else {
+      this.renderer.removeClass(this.nav, 'expanded');
+    }
+  }
 }

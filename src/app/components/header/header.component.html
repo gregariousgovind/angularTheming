@@ -1,0 +1,24 @@
+<header class="header aerolighter">
+  <a href="/landing"> <i class="logo-icon">Demo</i></a>
+  <div class="navigation-container">
+    <nav class="header-navigation" id="headerNavigation">
+      <a
+        *ngFor="let nav of navigationsConfig"
+        class="nav-item"
+        [ngClass]="{ active: nav.id == navigationsConfig.activeId }"
+        (click)="handleNavigations(nav)"
+        >{{ nav.name }}</a
+      >
+    </nav>
+    <button
+      href="javascript:void(0);"
+      class="hamburger-icon"
+      (click)="openMenu()"
+    >
+      |||
+    </button>
+  </div>
+  <div class="right-container">
+    <i class="avatar" data-tooltip="Profile" data-tooltip-position="left"></i>
+  </div>
+</header>
