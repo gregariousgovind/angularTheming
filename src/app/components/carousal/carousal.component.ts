@@ -32,6 +32,20 @@ export class CarousalComponent implements OnInit {
     },
   ];
 
+  public isLeftDisabled() {
+    return this.content.scrollLeft == 0;
+  }
+
+  public isRightDisabled() {
+    return (
+      Math.abs(
+        this.content.scrollLeft +
+          this.content.offsetWidth -
+          this.content.scrollWidth
+      ) < 1
+    );
+  }
+
   ngOnInit() {
     this.content = this.element.nativeElement.querySelector('#cardWrapperId');
   }

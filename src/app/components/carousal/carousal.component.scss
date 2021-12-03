@@ -1,22 +1,19 @@
 .cards-container {
   position: relative;
-  margin: 10px 20px;
+  margin: 10px auto;
+  max-width: 600px;
+  width: 60vw;
+  min-width: 280px;
 
   .arrow-btn {
     position: absolute;
     top: 50%;
     width: 60px;
     height: 30px;
-    background: #ffffff;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border: 2px solid var(--theme-color-lightest);
-    background-color: hsl(
-      calc(var(--theme-color-h) - 2),
-      calc(var(--theme-color-s) + 12%),
-      calc(var(--theme-color-l) + 60%),
-      0.5
-    );
+    background-color: var(--theme-color-aerolighter);
     box-shadow: 0px 3px 6px var(--box-shadow);
     opacity: 1;
     cursor: pointer;
@@ -27,7 +24,7 @@
       height: 15px;
       width: 15px;
       border-style: solid;
-      border-color: #32588d;
+      border-color: var(--theme-color);
       border-width: 0px 2px 2px 0px;
       transform: rotate(-135deg);
       top: 8px;
@@ -35,13 +32,18 @@
       transition: border-width 150ms ease-in-out;
     }
 
-    &.disabled {
-      opacity: 0.9;
+    &:disabled {
+      opacity: 0.8;
       cursor: default;
+      pointer-events: none;
+
+      &:after {
+        border-color: var(--disabled);
+      }
     }
 
     &:not(.disabled):hover {
-      box-shadow: 0px 2px 4px #00000029;
+      box-shadow: 0px 2px 6px var(--box-shadow);
 
       &:after {
         border-bottom-width: 3px;
@@ -72,24 +74,26 @@
       display: flex;
       flex: 0 0 100%;
       flex-direction: column;
-      min-height: 200px;
+      min-height: 250px;
       align-items: center;
-      color: #5b5b5b;
-      background: #ffffff;
+      color: hsl(
+        0,
+        0%,
+        calc(
+          (var(--theme-color-aerolighter-l) - var(--contrastThreshold)) * -100
+        )
+      );
+      background-color: hsl(
+        calc(var(--theme-color-h) - 2),
+        calc(var(--theme-color-s) + 12%),
+        calc(var(--theme-color-l) + 60%),
+        0.8
+      );
       box-shadow: 0 1px 4px var(--box-shadow);
       border-radius: 4px;
       cursor: pointer;
       scroll-snap-align: start;
       scroll-snap-stop: normal;
-
-      &:hover {
-        background-color: #f3f7fd;
-      }
-
-      &.active {
-        background: #32588d;
-        color: #ffffff;
-      }
 
       .card-label {
         display: flex;

@@ -3,8 +3,9 @@
     class="arrow-btn left-btn"
     id="leftBtnId"
     (click)="scrollLeft($event)"
+    [disabled]="isLeftDisabled()"
   ></button>
-  <div class="cards-wrapper" id="cardWrapperId">
+  <div class="cards-wrapper" id="cardWrapperId" (scroll)="(false)">
     <div *ngFor="let card of cardsData" class="card">
       <div class="card-label">{{ card.name }}</div>
     </div>
@@ -13,5 +14,6 @@
     class="arrow-btn right-btn"
     id="rightBtnId"
     (click)="scrollRight($event)"
+    [disabled]="isRightDisabled()"
   ></button>
 </div>
