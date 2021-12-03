@@ -1,0 +1,137 @@
+:root {
+  --theme-color-h: 215;
+  --theme-color-s: 48%;
+  --theme-color-l: 37%;
+
+  --theme-color: hsl(
+    var(--theme-color-h),
+    var(--theme-color-s),
+    var(--theme-color-l)
+  );
+
+  --theme-color-dark-l: calc(var(--theme-color-l) - 8%);
+  --theme-color-dark: hsl(
+    var(--theme-color-h),
+    calc(var(--theme-color-s) + 5%),
+    var(--theme-color-dark-l)
+  );
+
+  --theme-color-darker-l: calc(var(--theme-color-l) - 18%);
+  --theme-color-darker: hsl(
+    var(--theme-color-h),
+    calc(var(--theme-color-s) + 13%),
+    var(--theme-color-darker-l)
+  );
+
+  --theme-color-darkest-l: calc(var(--theme-color-l) - 25%);
+  --theme-color-darkest: hsl(
+    var(--theme-color-h),
+    calc(var(--theme-color-s) + 21%),
+    var(--theme-color-darkest-l)
+  );
+
+  --theme-color-light-l: calc(var(--theme-color-l) + 21%);
+  --theme-color-light: hsl(
+    calc(var(--theme-color-h) + 1),
+    calc(var(--theme-color-s) + 15%),
+    var(--theme-color-light-l)
+  );
+
+  --theme-color-lighter-l: calc(var(--theme-color-l) + 47%);
+  --theme-color-lighter: hsl(
+    calc(var(--theme-color-h) + 1),
+    calc(var(--theme-color-s) + 52%),
+    var(--theme-color-lighter-l)
+  );
+
+  --theme-color-lightest-l: calc(var(--theme-color-l) + 56%);
+  --theme-color-lightest: hsl(
+    calc(var(--theme-color-h) + 3),
+    calc(var(--theme-color-s) + 46%),
+    calc(var(--theme-color-l) + 56%)
+  );
+
+  --theme-color-aerolighter-l: calc(var(--theme-color-l) + 60%);
+  --theme-color-aerolighter: hsl(
+    calc(var(--theme-color-h) - 2),
+    calc(var(--theme-color-s) + 12%),
+    calc(var(--theme-color-l) + 60%)
+  );
+
+  --contrastThreshold: 60%;
+
+  /* Common colors */
+  --link: #2964bb;
+  --visited: #8a3ffc;
+  --focus-outline: #8e45fc;
+  --box-shadow: #bbbbbb;
+  --scrollbar-color: var(--theme-color-darkest);
+  --disabled: #c2c2c2;
+  --bodyBG: var(--theme-color-lightest);
+  --sectionBG: #ffffff;
+  --error: #e3231f;
+  --success: #7ebc84;
+  --warning: #ffcc67;
+}
+
+/* Color Classes */
+.base {
+  background: var(--theme-color);
+  --switch: calc((var(--theme-color-l) - var(--contrastThreshold)) * -100);
+  color: hsl(0, 0%, var(--switch));
+}
+
+.dark {
+  background: var(--theme-color-dark);
+  --switch: calc((var(--theme-color-dark-l) - var(--contrastThreshold)) * -100);
+  color: hsl(0, 0%, var(--switch));
+}
+
+.darker {
+  background: var(--theme-color-darker);
+  --switch: calc(
+    (var(--theme-color-darker-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+
+.darkest {
+  background: var(--theme-color-darkest);
+  --switch: calc(
+    (var(--theme-color-darkest-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+
+.light {
+  background: var(--theme-color-light);
+  --switch: calc(
+    (var(--theme-color-light-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+
+.lighter {
+  background: var(--theme-color-lighter);
+  --switch: calc(
+    (var(--theme-color-lighter-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+
+.lightest {
+  background: var(--theme-color-lightest);
+  --switch: calc(
+    (var(--theme-color-lightest-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+
+.aerolighter {
+  background: var(--theme-color-aerolighter);
+  --switch: calc(
+    (var(--theme-color-aerolighter-l) - var(--contrastThreshold)) * -100
+  );
+  color: hsl(0, 0%, var(--switch));
+}
+/* Color Classes End */

@@ -1,0 +1,19 @@
+<div class="standard-wrapper">
+  <div class="header-container">
+    <main-header></main-header>
+  </div>
+  <div class="body-container">
+    <left-panel></left-panel>
+    <div class="right-panel-container">
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+      <footer class="footer-container aerolighter">
+        <demo-button
+          [config]="footerButton"
+          (callback)="buttonClick($event)"
+        ></demo-button>
+      </footer>
+    </div>
+  </div>
+</div>

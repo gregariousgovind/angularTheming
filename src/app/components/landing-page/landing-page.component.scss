@@ -1,0 +1,105 @@
+.landing-page {
+  font: 400 15px/1.8 'Lato', sans-serif;
+
+  .image-container {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--theme-color-light);
+      opacity: 0.5;
+    }
+
+    .caption {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      z-index: 1;
+
+      span.border {
+        background-color: transparent;
+        color: hsl(
+          0,
+          0%,
+          calc((var(--theme-color-dark-l) - var(--contrastThreshold)) * -100)
+        );
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+      }
+    }
+
+    &.alpha-image {
+      background-image: url('https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+      min-height: 100vh;
+
+      .caption {
+        span.border {
+          background: var(--theme-color-dark);
+        }
+      }
+    }
+
+    &.beta-image {
+      background-image: url('https://images.pexels.com/photos/218863/pexels-photo-218863.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+      min-height: 400px;
+    }
+
+    &.gamma-image {
+      background-image: url('https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+      min-height: 400px;
+    }
+  }
+
+  @media only screen and (max-device-width: 1024px) {
+    .image-container {
+      background-attachment: scroll;
+    }
+  }
+
+  .content {
+    background: var(--theme-color-darker);
+    color: hsl(
+      0,
+      0%,
+      calc((var(--theme-color-darker-l) - var(--contrastThreshold)) * -100)
+    );
+    text-align: center;
+    padding: 50px 80px;
+
+    &.about {
+      background: var(--theme-color-aerolighter);
+      color: hsl(
+        0,
+        0%,
+        calc(
+          (var(--theme-color-aerolighter-l) - var(--contrastThreshold)) * -100
+        )
+      );
+    }
+
+    h3 {
+      font-size: 20px;
+      color: hsl(
+        0,
+        0%,
+        calc(
+          (var(--theme-color-aerolighter-l) - var(--contrastThreshold)) * -100
+        )
+      );
+      text-align: center;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+  }
+}

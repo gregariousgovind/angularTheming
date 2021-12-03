@@ -1,0 +1,27 @@
+<nav class="left-nav dark" [ngClass]="{ expanded: isExpanded }">
+  <button class="arrow-btn" (click)="expandCollapse()"></button>
+  <ul class="menu-list" role="menu">
+    <li
+      class="menu-item"
+      role="menuitem"
+      data-tooltip="Home"
+      data-tooltip-position="right"
+    >
+      <a class="menu-link" href="#home">
+        <i class="menu-icon">H</i>
+        <span class="menu-label">Home</span>
+      </a>
+    </li>
+    <li
+      class="menu-item"
+      role="menuitem"
+      data-tooltip="Reports"
+      data-tooltip-position="right"
+    >
+      <a class="menu-link" href="#reports">
+        <i class="menu-icon">R</i>
+        <span class="menu-label">Reports</span>
+      </a>
+    </li>
+  </ul>
+</nav>

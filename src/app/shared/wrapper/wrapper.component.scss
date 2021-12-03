@@ -1,0 +1,27 @@
+.body-container {
+  display: flex;
+  .right-panel-container {
+    width: calc(100vw - var(--left-panel-width) - var(--scrollbar-width));
+    transition: width 200ms;
+    margin-bottom: var(--footer-height);
+  }
+
+  footer.footer-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: calc(100vw - var(--left-panel-width));
+    box-shadow: 0 -1px 3px var(--box-shadow);
+    padding: 10px;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    height: var(--footer-height);
+    transition: width 200ms;
+
+    &:empty {
+      display: none;
+    }
+  }
+}

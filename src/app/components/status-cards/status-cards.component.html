@@ -1,0 +1,51 @@
+<div class="cards-container aerolighter">
+  <button
+    class="arrow-btn left-btn"
+    id="leftBtnId"
+    [disabled]="isLeftDisabled()"
+    (click)="leftScroll($event)"
+    (keydown.space)="leftScroll($event)"
+    (keydown.enter)="leftScroll($event)"
+    aria-label="Scroll through tabs to left"
+  ></button>
+  <div
+    class="cards-wrapper"
+    id="cardsWrapperId"
+    (scroll)="(false)"
+    role="tablist"
+    block-accessibility
+    [block-config]="{
+      blockTitle: 'cards-wrapper',
+      enableArrowNavigation: true,
+      leftRightNaviagation: true
+    }"
+  >
+    <div
+      *ngFor="let card of cards"
+      class="card"
+      [ngClass]="{ active: cardsData.activeCardId == card.id }"
+      role="tab"
+      (click)="changeSelection(card.id)"
+      (keydown.space)="changeSelection(card.id)"
+      (keydown.enter)="changeSelection(card.id)"
+      [attr.aria-selected]="cardsData.activeCardId == card.id"
+      tabbable-accessibility
+      [tabbable-config]="{ tabbableTitle: card.label, version: 1 }"
+    >
+      <div class="card-label">{{ card.label }}</div>
+      <div class="card-count">{{ card.value }}</div>
+    </div>
+  </div>
+  <button
+    class="arrow-btn right-btn"
+    id="rightBtnId"
+    [disabled]="isRightDisabled()"
+    (click)="rightScroll($event)"
+    (keydown.space)="rightScroll($event)"
+    (keydown.enter)="rightScroll($event)"
+    aria-label="Scroll through tabs to right"
+  ></button>
+</div>
+<span id="scrollAnnouncementId" aria-live="assertive">{{
+  scrollAnnouncement
+}}</span>

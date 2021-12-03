@@ -1,0 +1,134 @@
+nav.left-nav {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  max-height: 100vh;
+  width: var(--left-panel-width);
+  transition: width 200ms;
+  z-index: 8;
+
+  &.expanded {
+    .arrow-btn {
+      &::after,
+      &::before {
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+    }
+
+    ul.menu-list {
+      li.menu-item {
+        .menu-link {
+          .menu-icon {
+            padding: 5px;
+          }
+
+          .menu-label {
+            width: min-content;
+            height: min-content;
+            opacity: 1;
+            font-size: 12px;
+            line-height: 20px;
+            --switch: calc(
+              (var(--theme-color-dark-l) - var(--contrastThreshold)) * -100
+            );
+            color: hsl(0, 0%, var(--switch));
+          }
+        }
+      }
+    }
+  }
+
+  .arrow-btn {
+    position: relative;
+    cursor: pointer;
+    height: 32px;
+    width: calc(100% - 4px);
+    margin: 2px;
+    background: var(--theme-color-dark);
+    border: 1px solid var(--theme-color-dark);
+    border-bottom: 1px solid var(--theme-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--theme-color);
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+      height: 10px;
+      width: 10px;
+      border-style: solid;
+      --switch: calc(
+        (var(--theme-color-dark-l) - var(--contrastThreshold)) * -100
+      );
+      border-color: hsl(0, 0%, var(--switch));
+      border-width: 0px 2px 2px 0px;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      top: 50%;
+      transition: border-width 250ms ease-in-out;
+    }
+
+    &::before {
+      left: 70%;
+    }
+
+    &::after {
+      left: calc(70% - 8px);
+    }
+  }
+
+  ul.menu-list {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    li.menu-item {
+      position: relative;
+      width: calc(100% - 4px);
+      height: 60px;
+      margin: 2px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .menu-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          background-color: var(--theme-color);
+        }
+
+        .menu-icon {
+          flex: 1;
+          font-size: 20px;
+          line-height: 30px;
+          padding: 15px 0;
+          font-weight: bold;
+          --switch: calc(
+            (var(--theme-color-dark-l) - var(--contrastThreshold)) * -100
+          );
+          color: hsl(0, 0%, var(--switch));
+        }
+
+        .menu-label {
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

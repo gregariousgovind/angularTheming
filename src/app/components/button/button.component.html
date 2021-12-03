@@ -1,0 +1,46 @@
+<div class="btn-container">
+  <button
+    class="btn"
+    [ngClass]="{
+      'btn-secondary': config.secondary,
+      'btn-tertiary': config.tertiary,
+      'btn-sm': config.isSmall,
+      'btn-lg': config.isLarge
+    }"
+    [ngStyle]="config.styles"
+    [disabled]="config.disabled"
+    [attr.data-tooltip]="config.tooltip"
+    [attr.data-tooltip-position]="config.tooltipPosition"
+    [attr.aria-label]="config.title"
+    (click)="onClickHandle($event)"
+  >
+    <ng-container #btnLeftIconContainer></ng-container>
+    {{ config.title }}
+    <ng-container #btnRightIconContainer></ng-container>
+  </button>
+  <ng-container #comboboxBTNContainer></ng-container>
+</div>
+
+<ng-template #btnIconTemplate>
+  <i class="btn-icon fa {{ config.icon.class }}" aria-hidden="true"></i>
+</ng-template>
+
+<ng-template #comboboxBTNTemplate>
+  <button
+    class="btn"
+    [ngClass]="{
+      'btn-secondary': config.secondary,
+      'btn-tertiary': config.tertiary,
+      'btn-sm': config.isSmall,
+      'btn-lg': config.isLarge
+    }"
+    [ngStyle]="config.styles"
+    [disabled]="config.disabled"
+    [attr.data-tooltip]="config.icon.tooltip"
+    [attr.data-tooltip-position]="config.icon.tooltipPosition"
+    [attr.aria-label]="config.icon.tooltip"
+    (click)="onClickHandle($event, config.icon?.isCombobox)"
+  >
+    <i class="btn-icon fa {{ config.icon.class }}" aria-hidden="true"></i>
+  </button>
+</ng-template>
