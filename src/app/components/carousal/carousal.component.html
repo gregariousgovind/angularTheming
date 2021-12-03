@@ -5,32 +5,8 @@
     (click)="scrollLeft($event)"
   ></button>
   <div class="cards-wrapper" id="cardWrapperId">
-    <div class="card active">
-      <div class="card-label">All</div>
-    </div>
-    <div class="card">
-      <div class="card-label">Draft</div>
-    </div>
-    <div class="card">
-      <div class="card-label">In Progress</div>
-    </div>
-    <div class="card">
-      <div class="card-label">In Progress - Validation Pending</div>
-    </div>
-    <div class="card">
-      <div class="card-label">In Progress - Validated</div>
-    </div>
-    <div class="card">
-      <div class="card-label">Review Pending</div>
-    </div>
-    <div class="card">
-      <div class="card-label">Review Done</div>
-    </div>
-    <div class="card">
-      <div class="card-label">Closed</div>
-    </div>
-    <div class="card">
-      <div class="card-label">Rejected</div>
+    <div *ngFor="let card of cardsData" class="card">
+      <div class="card-label">{{ card.name }}</div>
     </div>
   </div>
   <button

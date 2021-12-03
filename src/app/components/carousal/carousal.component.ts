@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'carousal',
@@ -7,25 +7,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarousalComponent implements OnInit {
   private content;
-  private cardWidth = 250; // Should be same as --cardWidth;
-  private scrollStep;
+  constructor(private element: ElementRef) {}
 
-  constructor() {}
+  cardsData = [
+    {
+      id: 1,
+      name: 'All',
+    },
+    {
+      id: 2,
+      name: 'Draft',
+    },
+    {
+      id: 3,
+      name: 'In Progress',
+    },
+    {
+      id: 4,
+      name: 'In Progress - Validation Pending',
+    },
+    {
+      id: 5,
+      name: 'Closed',
+    },
+  ];
 
   ngOnInit() {
-    this.scrollStep = this.cardWidth + 30;
-    this.content = document.getElementById('cardWrapperId');
+    this.content = this.element.nativeElement.querySelector('#cardWrapperId');
   }
 
   scrollLeft(e) {
     e.preventDefault();
-    let sl = this.content.scrollLeft;
+    let sl = this.content.scrollLeft,
+      sw = this.content.scrollWidth;
 
-    if (sl - this.scrollStep <= 0) {
+    if (sl - sw / 9 <= 0) {
       this.content.scrollTo({ left: 0, behaviour: 'smooth' });
     } else {
       this.content.scrollTo({
-        left: sl - this.scrollStep,
+        left: sl - sw / 9,
         behaviour: 'smooth',
       });
     }
@@ -34,13 +54,13 @@ export class CarousalComponent implements OnInit {
   scrollRight(e) {
     e.preventDefault();
     let sl = this.content.scrollLeft,
-      cw = this.content.scrollWidth;
+      sw = this.content.scrollWidth;
 
-    if (sl + this.scrollStep >= cw) {
-      this.content.scrollTo({ left: cw, behaviour: 'smooth' });
+    if (sl + sw / 9 >= sw) {
+      this.content.scrollTo({ left: sw, behaviour: 'smooth' });
     } else {
       this.content.scrollTo({
-        left: sl + this.scrollStep,
+        left: sl + sw / 9,
         behaviour: 'smooth',
       });
     }
