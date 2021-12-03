@@ -1,5 +1,7 @@
 .landing-page {
   font: 400 15px/1.8 'Lato', sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow: auto;
 
   .image-container {
     position: relative;
@@ -7,6 +9,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
 
     &::after {
       content: '';
@@ -76,6 +80,8 @@
     );
     text-align: center;
     padding: 50px 80px;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
 
     &.about {
       background: var(--theme-color-aerolighter);
