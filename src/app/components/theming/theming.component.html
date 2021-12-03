@@ -1,54 +1,62 @@
-<demo-button
-  [config]="themeButton"
-  (callback)="openThemeHandler($event)"
-></demo-button>
-
-<section class="themes-container aerolighter">
-  <h2>
-    Monochromatic Color Classes
-    <span
-      class="theme-input"
-      data-tooltip="Theme Color"
-      data-tooltip-position="bottom"
-    >
-      <input type="color" [value]="themeColor" id="color-input" />
-    </span>
-  </h2>
-  <hr />
-  <div class="colors-container">
-    <fieldset>
-      <legend>Check other recommended themes.</legend>
-      <button
-        *ngFor="let theme of themes"
-        [style.background]="theme.color"
-        (click)="setTheme(theme.color)"
-        [attr.data-tooltip]="theme.themeName"
+<div class="themes-wrapper">
+  <demo-button
+    [config]="themeButton"
+    (callback)="openThemeHandler($event)"
+  ></demo-button>
+  <div
+    class="overlay"
+    [style.display]="isThemeVisible ? 'block' : 'none'"
+    (click)="openThemeHandler($event)"
+  ></div>
+  <section
+    class="themes-container aerolighter"
+    [style.display]="isThemeVisible ? 'block' : 'none'"
+  >
+    <h2 class="theme-header">
+      Monochromatic Color Classes
+      <span
+        class="theme-input"
+        data-tooltip="Theme Color"
         data-tooltip-position="bottom"
-      ></button>
-    </fieldset>
-    <div class="aerolighter">aerolighter</div>
-    <div class="lightest">lightest</div>
-    <div class="lighter">lighter</div>
-    <div class="light">light</div>
-    <div class="base">base</div>
-    <div class="dark">dark</div>
-    <div class="darker">darker</div>
-    <div class="darkest">darkest</div>
-  </div>
-  <hr />
-  <h2>Other Color Variables</h2>
-  <hr />
-  <div class="colors-container">
-    <div style="background: var(--link);">--link</div>
-    <div style="background: var(--visited);">--visited</div>
-    <div style="background: var(--focus-outline);">--focus-outline</div>
-    <div style="background: var(--box-shadow);">--box-shadow</div>
-    <div style="background: var(--scrollbar-color);">--scrollbar-color</div>
-    <div style="background: var(--disabled);">--disabled</div>
-    <div style="background: var(--bodyBG);">--bodyBG</div>
-    <div style="background: var(--sectionBG);">--sectionBG</div>
-    <div style="background: var(--error);">--error</div>
-    <div style="background: var(--success);">--success</div>
-    <div style="background: var(--warning);">--warning</div>
-  </div>
-</section>
+      >
+        <input type="color" [value]="themeColor" id="color-input" />
+      </span>
+    </h2>
+    <div class="colors-container">
+      <fieldset>
+        <legend>Check other recommended themes.</legend>
+        <button
+          *ngFor="let theme of themes"
+          [style.background]="theme.color"
+          (click)="setTheme(theme.color)"
+          [attr.data-tooltip]="theme.themeName"
+          data-tooltip-position="bottom"
+        ></button>
+      </fieldset>
+      <div class="aerolighter">aerolighter</div>
+      <div class="lightest">lightest</div>
+      <div class="lighter">lighter</div>
+      <div class="light">light</div>
+      <div class="base">base</div>
+      <div class="dark">dark</div>
+      <div class="darker">darker</div>
+      <div class="darkest">darkest</div>
+    </div>
+    <hr />
+    <h2>Other Color Variables</h2>
+    <hr />
+    <div class="colors-container">
+      <div style="background: var(--link);">--link</div>
+      <div style="background: var(--visited);">--visited</div>
+      <div style="background: var(--focus-outline);">--focus-outline</div>
+      <div style="background: var(--box-shadow);">--box-shadow</div>
+      <div style="background: var(--scrollbar-color);">--scrollbar-color</div>
+      <div style="background: var(--disabled);">--disabled</div>
+      <div style="background: var(--bodyBG);">--bodyBG</div>
+      <div style="background: var(--sectionBG);">--sectionBG</div>
+      <div style="background: var(--error);">--error</div>
+      <div style="background: var(--success);">--success</div>
+      <div style="background: var(--warning);">--warning</div>
+    </div>
+  </section>
+</div>

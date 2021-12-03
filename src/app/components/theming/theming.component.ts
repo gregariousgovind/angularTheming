@@ -14,6 +14,7 @@ import { IButton } from '../button/button.model';
 })
 export class ThemingComponent implements OnInit {
   public themeColor: '#32588d';
+  public isThemeVisible: boolean = false;
 
   public themes: any[] = [
     {
@@ -116,11 +117,15 @@ export class ThemingComponent implements OnInit {
 
   themeButton: IButton = {
     title: '',
+    secondary: true,
     icon: {
-      class: 'fa-caret-up',
+      class: 'fa fa-eye',
       alignedRight: false,
       tooltip: 'icon',
       tooltipPosition: 'top',
+    },
+    styles: {
+      'border-radius': '50%',
     },
     tooltipPosition: 'left',
   };
@@ -195,6 +200,9 @@ export class ThemingComponent implements OnInit {
   }
 
   openThemeHandler(event) {
-    console.log(event);
+    this.isThemeVisible = !this.isThemeVisible;
+    this.isThemeVisible
+      ? this.renderer.setStyle(document.body, 'overflow', 'hidden')
+      : this.renderer.setStyle(document.body, 'overflow', 'auto');
   }
 }

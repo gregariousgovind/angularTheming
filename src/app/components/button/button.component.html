@@ -22,7 +22,7 @@
 </div>
 
 <ng-template #btnIconTemplate>
-  <i class="btn-icon fa {{ config.icon.class }}" aria-hidden="true"></i>
+  <i class="btn-icon {{ config.icon.class }}" aria-hidden="true"></i>
 </ng-template>
 
 <ng-template #comboboxBTNTemplate>
@@ -41,6 +41,6 @@
     [attr.aria-label]="config.icon.tooltip"
     (click)="onClickHandle($event, config.icon?.isCombobox)"
   >
-    <i class="btn-icon fa {{ config.icon.class }}" aria-hidden="true"></i>
+    <i class="btn-icon {{ config.icon.class }}" aria-hidden="true"></i>
   </button>
 </ng-template>

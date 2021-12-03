@@ -60,7 +60,7 @@
           color: hsl(0, 0%, var(--switch));
         }
 
-        &:active {
+        &.active {
           background: var(--theme-color-dark);
           --switch: calc(
             (var(--theme-color-dark-l) - var(--contrastThreshold)) * -100
@@ -98,7 +98,7 @@
         &.expanded {
           position: absolute;
           right: 0;
-          top: calc(100% - 2px);
+          top: calc(100% + 2px);
           display: block;
           min-width: 100px;
           background: var(--theme-color-aerolighter);
@@ -109,7 +109,7 @@
           box-shadow: 0 0 3px var(--box-shadow);
           overflow: visible;
 
-          a.nan-item {
+          a.nav-item {
             float: none;
             text-align: left;
             height: 32px;

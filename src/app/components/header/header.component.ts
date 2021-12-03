@@ -20,8 +20,18 @@ export class HeaderComponent implements OnInit {
     navigations: [
       {
         id: 1,
-        name: 'contracts',
+        name: 'Contracts',
         url: '#contracts',
+      },
+      {
+        id: 2,
+        name: 'Suppliers',
+        url: '#suppliers',
+      },
+      {
+        id: 3,
+        name: 'RFx',
+        url: '#rfx',
       },
     ],
   };

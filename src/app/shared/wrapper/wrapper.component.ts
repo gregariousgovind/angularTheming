@@ -12,7 +12,7 @@ export class WrapperComponent implements OnInit {
     tooltip: 'DEFAULT',
     isSmall: true,
     icon: {
-      class: 'fa-caret-up',
+      class: 'fa fa-caret-up',
       alignedRight: false,
       isCombobox: true,
       tooltip: 'icon',
