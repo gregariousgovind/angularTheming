@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'carousal',
   templateUrl: './carousal.component.html',
-  styleUrls: ['./carousal.component.css']
+  styleUrls: ['./carousal.component.scss'],
 })
 export class CarousalComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
