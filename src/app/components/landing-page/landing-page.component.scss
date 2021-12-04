@@ -31,33 +31,75 @@
       text-align: center;
       z-index: 1;
 
-      span.border {
+      .border {
+        display: inline-block;
         background-color: transparent;
         color: hsl(
           0,
           0%,
           calc((var(--theme-color-dark-l) - var(--contrastThreshold)) * -100)
         );
-        padding: 18px;
-        font-size: 25px;
-        letter-spacing: 10px;
+        padding: 10px;
+        margin: 2px;
+        font-size: 24px;
+        letter-spacing: 8px;
+        font-weight: normal;
+      }
+
+      .what-i-do {
+        display: flex;
+        max-width: 80vw;
+        max-height: 220px;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: auto;
+
+        i {
+          position: relative;
+          display: block;
+          font-size: 50px;
+          min-width: 150px;
+          min-height: 100px;
+          margin: 5px;
+          background-color: hsl(
+            calc(var(--theme-color-h) - 2),
+            calc(var(--theme-color-s) + 12%),
+            calc(var(--theme-color-l) + 60%),
+            0.9
+          );
+          color: var(--theme-color-darker);
+          border-radius: 4px;
+          padding: 15px;
+
+          &::after {
+            content: attr(name);
+            position: absolute;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--theme-color-darkest);
+            width: 100%;
+            bottom: 10px;
+            left: 0;
+          }
+        }
       }
     }
 
     &.alpha-image {
       background-image: url('https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
       min-height: 100vh;
-
-      .caption {
-        span.border {
-          background: var(--theme-color-dark);
-        }
-      }
     }
 
     &.beta-image {
       background-image: url('https://images.pexels.com/photos/218863/pexels-photo-218863.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
       min-height: 400px;
+
+      .caption {
+        .border {
+          background: var(--theme-color-dark);
+        }
+      }
     }
 
     &.gamma-image {
@@ -93,9 +135,21 @@
           (var(--theme-color-aerolighter-l) - var(--contrastThreshold)) * -100
         )
       );
+
+      h3 {
+        font-size: 18px;
+        margin: 0;
+        font-weight: normal;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--theme-color);
+        font-style: italic;
+      }
     }
 
-    h3 {
+    h2 {
       font-size: 20px;
       color: hsl(
         0,

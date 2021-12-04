@@ -46,8 +46,7 @@ body {
 }
 
 .demo-logo svg {
-  width: 80px;
-  max-height: 90%;
+  width: clamp(60px, 10vw, 120px);
 }
 
 hr {
