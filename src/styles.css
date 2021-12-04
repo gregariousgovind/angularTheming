@@ -57,3 +57,19 @@ hr {
   opacity: 0.1;
   z-index: 18;
 }
+
+.typing-animation {
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
