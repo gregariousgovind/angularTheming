@@ -45,6 +45,146 @@ export class CarousalComponent implements OnInit {
         },
       },
     },
+    {
+      id: 2,
+      title: 'Codepen',
+      description: 'WCAG directives implementation with responsive design.',
+      avatarUrl:
+        'https://angular.io/assets/images/logos/angular/shield-large.svg',
+      suppressMenu: false,
+      menuConfig: {
+        title: '',
+        isSmall: true,
+        icon: {
+          class: 'fa fa-ellipsis-h',
+          alignedRight: false,
+        },
+        styles: {
+          position: 'absolute',
+          right: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+      },
+      handleAction: {
+        title: 'View Details',
+        secondary: true,
+        isSmall: true,
+        styles: {
+          width: 'calc(100% - 4px)',
+          margin: '2px',
+          border: 'none',
+          'border-top': '1px solid var(--theme-color)',
+          'border-radius': 0,
+          height: '38px',
+        },
+      },
+    },
+    {
+      id: 3,
+      title: 'React',
+      description: 'WCAG directives implementation with responsive design.',
+      avatarUrl:
+        'https://angular.io/assets/images/logos/angular/shield-large.svg',
+      suppressMenu: false,
+      menuConfig: {
+        title: '',
+        isSmall: true,
+        icon: {
+          class: 'fa fa-ellipsis-h',
+          alignedRight: false,
+        },
+        styles: {
+          position: 'absolute',
+          right: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+      },
+      handleAction: {
+        title: 'View Details',
+        secondary: true,
+        isSmall: true,
+        styles: {
+          width: 'calc(100% - 4px)',
+          margin: '2px',
+          border: 'none',
+          'border-top': '1px solid var(--theme-color)',
+          'border-radius': 0,
+          height: '38px',
+        },
+      },
+    },
+    {
+      id: 4,
+      title: 'HTML',
+      description: 'WCAG directives implementation with responsive design.',
+      avatarUrl:
+        'https://angular.io/assets/images/logos/angular/shield-large.svg',
+      suppressMenu: false,
+      menuConfig: {
+        title: '',
+        isSmall: true,
+        icon: {
+          class: 'fa fa-ellipsis-h',
+          alignedRight: false,
+        },
+        styles: {
+          position: 'absolute',
+          right: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+      },
+      handleAction: {
+        title: 'View Details',
+        secondary: true,
+        isSmall: true,
+        styles: {
+          width: 'calc(100% - 4px)',
+          margin: '2px',
+          border: 'none',
+          'border-top': '1px solid var(--theme-color)',
+          'border-radius': 0,
+          height: '38px',
+        },
+      },
+    },
+    {
+      id: 5,
+      title: 'CSS',
+      description: 'WCAG directives implementation with responsive design.',
+      avatarUrl:
+        'https://angular.io/assets/images/logos/angular/shield-large.svg',
+      suppressMenu: false,
+      menuConfig: {
+        title: '',
+        isSmall: true,
+        icon: {
+          class: 'fa fa-ellipsis-h',
+          alignedRight: false,
+        },
+        styles: {
+          position: 'absolute',
+          right: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+      },
+      handleAction: {
+        title: 'View Details',
+        secondary: true,
+        isSmall: true,
+        styles: {
+          width: 'calc(100% - 4px)',
+          margin: '2px',
+          border: 'none',
+          'border-top': '1px solid var(--theme-color)',
+          'border-radius': 0,
+          height: '38px',
+        },
+      },
+    },
   ];
 
   public isLeftDisabled() {

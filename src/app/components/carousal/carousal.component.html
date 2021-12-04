@@ -9,43 +9,16 @@
     <div *ngFor="let card of cardsData" class="card">
       <div class="card-header base">
         <img alt="angular" [attr.src]="card.avatarUrl" />
-        <demo-button
-          [config]="{
-            title: '',
-            isSmall: true,
-            icon: {
-              class: 'fa fa-ellipsis-h',
-              alignedRight: false
-            },
-            styles: {
-              position: 'absolute',
-              right: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)'
-            }
-          }"
-        ></demo-button>
+        <ng-container *ngIf="!card.suppressMenu">
+          <demo-button [config]="card.menuConfig"> </demo-button>
+        </ng-container>
       </div>
       <div class="card-details">
         <h3>{{ card.title }}</h3>
         <p>{{ card.description }}</p>
       </div>
-      <div class="card-footer aerolighter">
-        <demo-button
-          [config]="{
-            title: 'View Details',
-            secondary: true,
-            isSmall: true,
-            styles: {
-              width: 'calc(100% - 4px)',
-              margin: '2px',
-              border: 'none',
-              'border-top': '1px solid var(--theme-color)',
-              'border-radius': 0,
-              height: '38px'
-            }
-          }"
-        ></demo-button>
+      <div class="card-footer aerolighter" *ngIf="card.handleAction">
+        <demo-button [config]="card.handleAction"></demo-button>
       </div>
     </div>
   </div>
