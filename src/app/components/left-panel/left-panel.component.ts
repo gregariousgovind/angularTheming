@@ -13,7 +13,7 @@ import {
 export class LeftPanelComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
-  public isExpanded: boolean = false;
+  public isExpanded: boolean = true;
   private leftPanelWidth: string = '80px';
 
   expandCollapse() {
