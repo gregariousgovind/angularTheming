@@ -89,7 +89,7 @@
         0.1
       );
       border: 2px solid var(--theme-color);
-      border-radius: 25% 0 8px 8px;
+      border-radius: 100px 0 8px 8px;
       cursor: pointer;
       scroll-snap-align: start;
       scroll-snap-stop: normal;
@@ -112,7 +112,7 @@
         &:hover {
           width: 100%;
           border-left: none;
-          border-radius: calc(25% - 2px) 0 8px 4px;
+          border-radius: 98px 0 8px 4px;
         }
       }
 
@@ -131,7 +131,7 @@
             &:hover {
               height: 100%;
               border-top: none;
-              border-radius: calc(25% - 2px) 0 8px 4px;
+              border-radius: 98px 0 8px 4px;
             }
           }
         }
