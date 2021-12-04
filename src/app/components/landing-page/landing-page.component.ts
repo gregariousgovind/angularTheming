@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IButton } from '../button/button.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
+  public resumeBtnConfig: IButton;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.resumeBtnConfig = {
+      title: 'View My Resume',
+    };
+  }
 }
