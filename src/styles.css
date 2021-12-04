@@ -59,6 +59,11 @@ hr {
 }
 
 .typing-animation {
+  width: 22ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-size: 2em;
   animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
 }
 
