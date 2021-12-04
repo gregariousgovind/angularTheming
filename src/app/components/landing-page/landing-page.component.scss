@@ -51,6 +51,15 @@
       .caption {
         span.border {
           background: var(--theme-color-dark);
+
+          &.typing-animation {
+            background: transparent;
+            margin: auto;
+            width: 28.5ch;
+            border-right: 3px solid;
+            animation: typing 2s steps(30),
+              blink 0.5s step-end infinite alternate;
+          }
         }
       }
     }
