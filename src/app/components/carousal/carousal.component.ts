@@ -12,23 +12,23 @@ export class CarousalComponent implements OnInit {
   cardsData = [
     {
       id: 1,
-      name: 'All',
+      name: 'Angular',
     },
     {
       id: 2,
-      name: 'Draft',
+      name: 'React',
     },
     {
       id: 3,
-      name: 'In Progress',
+      name: 'JavaScript',
     },
     {
       id: 4,
-      name: 'In Progress - Validation Pending',
+      name: 'HTML',
     },
     {
       id: 5,
-      name: 'Closed',
+      name: 'CSS',
     },
   ];
 
