@@ -6,14 +6,16 @@
     [disabled]="isLeftDisabled()"
   ></button>
   <div class="cards-wrapper" id="cardWrapperId" (scroll)="(false)">
-    <div *ngFor="let card of cardsData" class="card">
-      <div class="card-img">
-        <img
-          src="https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
-          alt="{{ card.name }}"
-        />
+    <div
+      *ngFor="let card of cardsData"
+      class="card"
+      [style.backgroundImage]="
+        'url(https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&h=750&w=1260)'
+      "
+    >
+      <div class="card-details">
+        {{ card.name }}
       </div>
-      <div class="card-details">{{ card.name }}</div>
     </div>
   </div>
   <button
