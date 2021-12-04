@@ -1,8 +1,7 @@
 .cards-container {
   position: relative;
   margin: 10px auto;
-  width: calc(75vw - 20px);
-  min-width: 250px;
+  width: clamp(250px, calc(90vw - 20px), 648px);
 
   .arrow-btn {
     position: absolute;

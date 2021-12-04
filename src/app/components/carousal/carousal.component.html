@@ -8,10 +8,7 @@
   <div class="cards-wrapper" id="cardWrapperId" (scroll)="(false)">
     <div *ngFor="let card of cardsData" class="card">
       <div class="card-header base">
-        <img
-          alt="angular"
-          src="https://angular.io/assets/images/logos/angular/shield-large.svg"
-        />
+        <img alt="angular" [attr.src]="card.avatarUrl" />
         <demo-button
           [config]="{
             title: '',
@@ -30,7 +27,8 @@
         ></demo-button>
       </div>
       <div class="card-details">
-        <h3>{{ card.name }}</h3>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
       </div>
       <div class="card-footer aerolighter">
         <demo-button

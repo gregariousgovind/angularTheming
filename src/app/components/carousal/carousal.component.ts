@@ -12,23 +12,38 @@ export class CarousalComponent implements OnInit {
   cardsData = [
     {
       id: 1,
-      name: 'Angular',
-    },
-    {
-      id: 2,
-      name: 'React',
-    },
-    {
-      id: 3,
-      name: 'JavaScript',
-    },
-    {
-      id: 4,
-      name: 'HTML',
-    },
-    {
-      id: 5,
-      name: 'CSS',
+      title: 'Angular',
+      description: 'WCAG directives implementation with responsive design.',
+      avatarUrl:
+        'https://angular.io/assets/images/logos/angular/shield-large.svg',
+      suppressMenu: false,
+      menuConfig: {
+        title: '',
+        isSmall: true,
+        icon: {
+          class: 'fa fa-ellipsis-h',
+          alignedRight: false,
+        },
+        styles: {
+          position: 'absolute',
+          right: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+      },
+      handleAction: {
+        title: 'View Details',
+        secondary: true,
+        isSmall: true,
+        styles: {
+          width: 'calc(100% - 4px)',
+          margin: '2px',
+          border: 'none',
+          'border-top': '1px solid var(--theme-color)',
+          'border-radius': 0,
+          height: '38px',
+        },
+      },
     },
   ];
 
