@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'carousal',
@@ -7,7 +8,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class CarousalComponent implements OnInit {
   private content;
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef, private router: Router) {}
 
   cardsData = [
     {
@@ -44,6 +45,7 @@ export class CarousalComponent implements OnInit {
           height: '38px',
         },
       },
+      reference: '/theming/statusCards',
     },
     {
       id: 2,
@@ -203,6 +205,11 @@ export class CarousalComponent implements OnInit {
 
   ngOnInit() {
     this.content = this.element.nativeElement.querySelector('#cardWrapperId');
+  }
+
+  handleCardClick(event, card) {
+    console.info(event, card);
+    card.reference && this.router.navigateByUrl(card.reference);
   }
 
   scrollLeft(e) {

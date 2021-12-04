@@ -18,7 +18,10 @@
         <p>{{ card.description }}</p>
       </div>
       <div class="card-footer aerolighter" *ngIf="card.handleAction">
-        <demo-button [config]="card.handleAction"></demo-button>
+        <demo-button
+          [config]="card.handleAction"
+          (callback)="handleCardClick($event, card)"
+        ></demo-button>
       </div>
     </div>
   </div>

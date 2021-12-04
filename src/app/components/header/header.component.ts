@@ -21,17 +21,17 @@ export class HeaderComponent implements OnInit {
       {
         id: 1,
         name: 'Contracts',
-        url: '#contracts',
+        url: '/landing',
       },
       {
         id: 2,
         name: 'Suppliers',
-        url: '#suppliers',
+        url: '/landing',
       },
       {
         id: 3,
         name: 'RFx',
-        url: '#rfx',
+        url: '/landing',
       },
     ],
   };
