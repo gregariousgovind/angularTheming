@@ -13,6 +13,7 @@
 body {
   margin: 0;
   background: var(--bodyBG);
+  font: 400 15px/1.8 'Lato', sans-serif;
 }
 
 *:focus {
