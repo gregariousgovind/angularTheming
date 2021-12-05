@@ -134,7 +134,10 @@
         <i class="fa fa-codepen" name="Codepen"></i>
         <i class="fa fa-low-vision" name="WCAG"></i>
       </div>
-      <demo-button [config]="resumeBtnConfig"></demo-button>
+      <demo-button
+        [config]="resumeBtnConfig"
+        (callback)="viewResume($event)"
+      ></demo-button>
     </div>
   </div>
 

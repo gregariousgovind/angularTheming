@@ -1,0 +1,141 @@
+.resume-wrapper {
+  display: flex;
+  margin: 5px auto;
+  padding: 5px;
+  width: calc(100vw - 10px);
+  max-width: 800px;
+  min-height: calc(100vh - 10px);
+  box-shadow: 0 0 6px var(--box-shadow);
+
+  .section-container {
+    &.left {
+      width: 40%;
+      border: 1px solid var(--theme-color);
+      border-radius: 2px;
+    }
+
+    &.right {
+      width: 60%;
+    }
+
+    section {
+      padding: 10px;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-weight: normal;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      h3 {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        font-size: 13px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 12px;
+      }
+
+      &.profile {
+        position: relative;
+        min-height: 80px;
+        text-align: center;
+        padding-bottom: 40px;
+        box-shadow: 2px 2px 6px var(--box-shadow);
+        border-radius: 2px 2px 0 0;
+
+        .role {
+          text-transform: uppercase;
+          font-size: 14px;
+        }
+
+        img {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          outline: 1px solid;
+          box-shadow: 0 4px 4px var(--box-shadow);
+          width: 60px;
+          height: 70px;
+          border-radius: 50%;
+        }
+      }
+
+      &.about {
+        padding-top: 40px;
+      }
+
+      &.skills {
+        h4.skill {
+          position: relative;
+          padding-bottom: 20px;
+
+          &:before,
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            display: block;
+            border: 2px solid var(--theme-color-aerolighter);
+            outline: var(--theme-color-lighter) solid 2px;
+            height: 8px;
+            border-radius: 5px;
+          }
+
+          &:before {
+            width: 100%;
+            background: var(--theme-color-lightest);
+          }
+
+          &:after {
+            width: var(--level);
+            background: var(--theme-color-light);
+            border-radius: 5px 0 0 5px;
+            border-right: 0;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    & {
+      flex-direction: column;
+      .section-container {
+        &.left,
+        &.right {
+          width: 100%;
+          border: 1px solid var(--theme-color);
+        }
+        &.left {
+          border-bottom: none;
+          border-radius: 2px 2px 0 0;
+        }
+        &.right {
+          border-top: none;
+          border-radius: 0 0 2px 2px;
+        }
+      }
+    }
+  }
+}

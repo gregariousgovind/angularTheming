@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IButton } from '../button/button.model';
 
 @Component({
@@ -9,11 +10,15 @@ import { IButton } from '../button/button.model';
 export class LandingPageComponent implements OnInit {
   public resumeBtnConfig: IButton;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.resumeBtnConfig = {
       title: 'View My Resume',
     };
+  }
+
+  viewResume(e) {
+    this.router.navigateByUrl('/resume');
   }
 }
