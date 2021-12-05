@@ -140,6 +140,10 @@
             .level {
               text-transform: uppercase;
             }
+
+            .passing-year {
+              font-size: 10px;
+            }
           }
 
           .university {
@@ -148,6 +152,17 @@
             ul {
               margin-top: 5px;
               padding-left: 20px;
+            }
+          }
+        }
+      }
+      &.experience {
+        h4 {
+          display: block;
+          .degree {
+            justify-content: flex-start;
+            .passing-year {
+              margin-left: 5px;
             }
           }
         }
