@@ -1,6 +1,6 @@
 .resume-wrapper {
   display: flex;
-  margin: 5px auto;
+  margin: 5px auto calc(var(--footer-height) + 5px) auto;
   padding: 5px;
   width: calc(100vw - 10px);
   max-width: 792px;
@@ -212,4 +212,13 @@
       }
     }
   }
+}
+.resume-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  background-color: var(--theme-color-aerolighter);
+  box-shadow: 0 -2px 2px var(--box-shadow);
 }
