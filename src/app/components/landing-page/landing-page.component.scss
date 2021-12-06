@@ -96,13 +96,12 @@
       background-image: url('https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
       min-height: 400px;
     }
-    
-  @media only screen and (max-device-width: 1024px) {
-     {
-      background-attachment: scroll;
-    }
-  }
 
+    @media only screen and (max-device-width: 1024px) {
+      & {
+        background-attachment: scroll;
+      }
+    }
   }
 
   .content {
