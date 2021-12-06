@@ -1,5 +1,4 @@
 .landing-page {
-  scroll-snap-type: y mandatory;
   height: 100vh;
   overflow: auto;
 
@@ -9,8 +8,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
 
     &::after {
       content: '';
@@ -99,12 +96,13 @@
       background-image: url('https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
       min-height: 400px;
     }
-  }
-
+    
   @media only screen and (max-device-width: 1024px) {
-    .image-container {
+     {
       background-attachment: scroll;
     }
+  }
+
   }
 
   .content {
@@ -116,8 +114,6 @@
     );
     text-align: center;
     padding: 50px 80px;
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
 
     &.about {
       background: var(--theme-color-aerolighter);
