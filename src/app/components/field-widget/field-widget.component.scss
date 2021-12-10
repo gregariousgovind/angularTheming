@@ -3,7 +3,7 @@
   --widget-border: hsl(
     0,
     0%,
-    calc((var(--theme-color-l) - var(--contrastThreshold)) * -100)
+    calc((var(--theme-color-lighter-l) - var(--contrastThreshold)) * -100)
   );
   details {
     box-shadow: 0 0 3px var(--box-shadow);
@@ -41,11 +41,11 @@
         margin: 10px;
         padding: 0 10px;
         height: 42px;
-        border: 1px solid #1d1d1d;
+        border: 1px solid var(--widget-border);
         border-radius: 4px;
 
         &:focus-within {
-          outline: #32588d solid 2px;
+          outline: var(--focus-outline) solid 2px;
           border: 1px solid transparent;
         }
 
@@ -105,11 +105,18 @@
         .input-select:not([value='']):valid ~ label {
           top: -4px;
           left: 4px;
-          background: #f3f7fc;
+          background: var(--theme-color-aerolighter);
           font-size: 12px;
           padding: 0 5px;
-          color: #5264ae;
+          color: var(--focus-outline);
           font-weight: bold;
+        }
+
+        .input-field {
+          &:not(:focus) ~ label {
+            color: var(--widget-border) !important;
+            font-weight: normal !important;
+          }
         }
       }
     }
