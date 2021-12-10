@@ -63,7 +63,7 @@
   /* Common colors */
   --link: #2964bb;
   --visited: #8a3ffc;
-  --focus-outline: var(--theme-color-darkest);
+  --focus-outline: var(--theme-color);
   --box-shadow: #bbbbbb;
   --scrollbar-color: var(--theme-color-darkest);
   --disabled: #c2c2c2;
