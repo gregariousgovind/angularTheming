@@ -5,6 +5,7 @@ import { WrapperComponent } from './shared/wrapper/wrapper.component';
 import { StatusCardsComponent } from './components/status-cards/status-cards.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { FieldWidgetComponent } from './components/field-widget/field-widget.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/statusCards', pathMatch: 'full' },
       { path: 'statusCards', component: StatusCardsComponent },
+      { path: 'fieldWidget', component: FieldWidgetComponent },
     ],
   },
 ];

@@ -1,0 +1,116 @@
+.container {
+    details {
+      background: #f3f7fd;
+      box-shadow: 0 0 3px #bbbbbb;
+
+      summary {
+        padding: 10px 20px;
+        text-transform: capitalize;
+
+        &::marker {
+          color: #32588d;
+        }
+
+        &:focus {
+          outline: 2px solid #32588d;
+        }
+
+        &:hover {
+          background: #c2c2c225;
+        }
+
+        h1 {
+          display: inline-block;
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: 5px;
+          font-size: 18px;
+        }
+      }
+            
+      .widget {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid #bbbbbb;
+        padding: 10px;
+        
+        .input-container {
+          position: relative;
+          width: 20%;
+          min-width: 200px;
+          margin: 10px;
+          padding: 0 10px;
+          height: 42px;
+          border: 1px solid #1d1d1d;
+          border-radius: 4px;
+          
+          &:focus-within {
+            outline: #32588d solid 2px;
+            border: 1px solid transparent;
+          }
+          
+          &.textarea {
+            max-width: fit-content;
+            min-width: 250px;
+            height: fit-content;
+            padding-right: 0;
+            
+            &, .input-textarea {
+              min-height: 42px;
+            }
+            
+            .input-textarea {
+              min-width: 100%;
+              max-width: 100%;
+              padding: 10px 0;
+            }
+          }
+          
+          .input-text,
+          .input-select,
+          .input-autocomplete,
+          .input-numeric,
+          .input-textarea {
+            display: block;
+            background-color: transparent;
+            font-size: 14px;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            border: none;
+            outline: none;
+          }
+          
+          label {
+            position: absolute;
+            font-size: 14px;
+            left: 16px;
+            top: 50%;
+            text-transform: capitalize;
+            transform: translateY(-50%);
+            transition: 0.2s ease all;
+          }
+          
+          .input-text:focus ~ label,
+          .input-text:not(:placeholder-shown) ~ label,
+          .input-numeric:focus ~ label,
+          .input-numeric:hover ~ label,
+          .input-numeric:not(:placeholder-shown) ~ label,
+          .input-textarea:focus ~ label,
+          .input-textarea:not(:placeholder-shown) ~ label,
+          .input-autocomplete:focus ~ label,
+          .input-autocomplete:not(:placeholder-shown) ~ label,
+          .input-select:focus~label,
+          .input-select:not([value=""]):valid ~ label {
+            top: -4px;
+            left: 4px;
+            background: #f3f7fc;
+            font-size: 12px;
+            padding: 0 5px;
+            color: #5264AE;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }

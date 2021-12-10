@@ -81,6 +81,7 @@ export class CarousalComponent implements OnInit {
           height: '38px',
         },
       },
+      reference: '/theming/fieldWidget',
     },
     {
       id: 3,

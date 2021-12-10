@@ -18,6 +18,7 @@ import { SkipBlockAccessibilityDirective } from './shared/directives/skip-block.
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CarousalComponent } from './components/carousal/carousal.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { FieldWidgetComponent } from './components/field-widget/field-widget.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, RoutingModule],
@@ -38,6 +39,7 @@ import { ResumeComponent } from './components/resume/resume.component';
     LandingPageComponent,
     CarousalComponent,
     ResumeComponent,
+    FieldWidgetComponent,
     LayerAccessibilityDirective,
     BlockAccessibilityDirective,
     TabbableAccessibilityDirective,

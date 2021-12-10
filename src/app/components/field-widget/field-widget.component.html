@@ -1,0 +1,71 @@
+<div class="container">
+  <details open>
+    <summary>
+      <h1>floating labels inputs</h1>
+    </summary>
+
+    <section class="widget">
+      <div class="input-container select">
+        <select
+          class="input-select"
+          id="inputSelectId"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option value="" style="display: none"></option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label for="inputSelectId">input select</label>
+      </div>
+
+      <div class="input-container autocomplete">
+        <input
+          class="input-autocomplete"
+          list="inputAutocompleteListId"
+          id="inputAutocompleteId"
+          placeholder=" "
+        />
+        <datalist id="inputAutocompleteListId">
+          <option value="apple"></option>
+          <option value="ball"></option>
+          <option value="cat"></option>
+          <option value="dog"></option>
+          <option value="elephant"></option>
+        </datalist>
+
+        <label for="inputAutocompleteId">input autocomplete</label>
+      </div>
+
+      <div class="input-container text">
+        <input
+          class="input-text"
+          id="inputTextId"
+          type="text"
+          placeholder=" "
+        />
+        <label for="inputTextId">input text</label>
+      </div>
+
+      <div class="input-container numeric">
+        <input
+          class="input-numeric"
+          id="inputNumericId"
+          type="number"
+          placeholder=" "
+        />
+        <label for="inputNumericId">input numeric</label>
+      </div>
+
+      <div class="input-container textarea">
+        <textarea
+          class="input-textarea"
+          id="inputTextareaId"
+          placeholder=" "
+        ></textarea>
+        <label for="inputTextareaId">input textarea</label>
+      </div>
+    </section>
+  </details>
+</div>
