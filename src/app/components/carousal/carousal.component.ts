@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CarousalComponent implements OnInit {
   private content;
+  private cardsLength;
   constructor(private element: ElementRef, private router: Router) {}
 
   cardsData = [
@@ -206,6 +207,7 @@ export class CarousalComponent implements OnInit {
 
   ngOnInit() {
     this.content = this.element.nativeElement.querySelector('#cardWrapperId');
+    this.cardsLength = this.cardsData.length;
   }
 
   handleCardClick(event, card) {
@@ -218,11 +220,11 @@ export class CarousalComponent implements OnInit {
     let sl = this.content.scrollLeft,
       sw = this.content.scrollWidth;
 
-    if (sl - sw / 9 <= 0) {
+    if (sl - sw / this.cardsLength <= 0) {
       this.content.scrollTo({ left: 0, behaviour: 'smooth' });
     } else {
       this.content.scrollTo({
-        left: sl - sw / 9,
+        left: sl - sw / this.cardsLength,
         behaviour: 'smooth',
       });
     }
@@ -233,11 +235,11 @@ export class CarousalComponent implements OnInit {
     let sl = this.content.scrollLeft,
       sw = this.content.scrollWidth;
 
-    if (sl + sw / 9 >= sw) {
+    if (sl + sw / this.cardsLength >= sw) {
       this.content.scrollTo({ left: sw, behaviour: 'smooth' });
     } else {
       this.content.scrollTo({
-        left: sl + sw / 9,
+        left: sl + sw / this.cardsLength,
         behaviour: 'smooth',
       });
     }
