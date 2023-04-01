@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
@@ -19,9 +19,10 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { CarousalComponent } from './components/carousal/carousal.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { FieldWidgetComponent } from './components/field-widget/field-widget.component';
+import { PropertyPanelComponent } from './components/property-panel/property-panel.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RoutingModule],
+  imports: [BrowserModule, FormsModule, RoutingModule, ReactiveFormsModule],
   exports: [
     LayerAccessibilityDirective,
     BlockAccessibilityDirective,
@@ -40,6 +41,7 @@ import { FieldWidgetComponent } from './components/field-widget/field-widget.com
     CarousalComponent,
     ResumeComponent,
     FieldWidgetComponent,
+    PropertyPanelComponent,
     LayerAccessibilityDirective,
     BlockAccessibilityDirective,
     TabbableAccessibilityDirective,
