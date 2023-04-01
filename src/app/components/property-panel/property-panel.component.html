@@ -1,54 +1,38 @@
-<form (ngSubmit)="onFormSubmit(form.value)" #form="ngForm">
-  <ul>
-    <ng-container *ngFor="let key of objectKeys(data)">
-      <li>
-        <label [for]="key">{{ key }}</label>
-        <ng-container [ngSwitch]="getTypeof(data[key])">
-          <ng-container *ngSwitchCase="'string'">
-            <input
-              type="text"
-              [name]="key"
-              [id]="key"
-              [(ngModel)]="data[key]"
-              required
-            />
-          </ng-container>
-          <ng-container *ngSwitchCase="'number'">
-            <input
-              type="number"
-              [name]="key"
-              [id]="key"
-              [(ngModel)]="data[key]"
-              required
-            />
-          </ng-container>
-          <ng-container *ngSwitchCase="'boolean'">
-            <input
-              type="checkbox"
-              [name]="key"
-              [id]="key"
-              [(ngModel)]="data[key]"
-            />
-          </ng-container>
-          <ng-container *ngSwitchCase="'object'">
-            <ng-container *ngIf="isArray(data[key])">
-              <label [for]="key">Choose {{ key }}</label>
-              <select [name]="key" [id]="key" [(ngModel)]="data[key]">
-                <option *ngFor="let item of data[key]" [value]="item">
-                  {{ item.name }}
-                </option>
-              </select>
-            </ng-container>
-            <ng-container *ngIf="!isArray(data[key])">
-              <app-property-panel
-                [data]="data[key]"
-                (formSubmit)="onFormSubmit($event)"
-              ></app-property-panel>
-            </ng-container>
-          </ng-container>
+<ul>
+  <ng-container *ngFor="let item of objectKeys(data)">
+    <li>
+      <label [attr.for]="item">{{ item }}</label>
+      <ng-container [ngSwitch]="getType(data[item])">
+        <ng-container *ngSwitchCase="'object'">
+          <ul>
+            <app-property-panel *ngIf="data[item]" [data]="data[item]">
+            </app-property-panel>
+          </ul>
         </ng-container>
-      </li>
-    </ng-container>
-  </ul>
-  <button type="submit">Submit</button>
-</form>
+        <ng-container *ngSwitchCase="'array'">
+          <select id="{{ item }}" name="{{ item }}" [(ngModel)]="data[item]">
+            <option *ngFor="let option of data[item]" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </ng-container>
+        <ng-container *ngSwitchCase="'boolean'">
+          <input
+            type="checkbox"
+            id="{{ item }}"
+            name="{{ item }}"
+            [(ngModel)]="data[item]"
+          />
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <input
+            type="{{ getType(data[item]) }}"
+            id="{{ item }}"
+            name="{{ item }}"
+            [(ngModel)]="data[item]"
+          />
+        </ng-container>
+      </ng-container>
+    </li>
+  </ng-container>
+</ul>

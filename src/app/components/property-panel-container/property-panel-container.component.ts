@@ -12,7 +12,13 @@ import { Component } from '@angular/core';
 })
 export class PropertyPanelContainerComponent {
   data = {
-    name: 'John Doe',
+    name: {
+      fname: "Govind",
+      lname: {
+        m: "Singh",
+        l: "Chauhan"
+      }
+    },
     age: 25,
     address: {
       street: '123 Main St',
