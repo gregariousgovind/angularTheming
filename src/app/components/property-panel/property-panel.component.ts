@@ -1,6 +1,21 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
+const  data = {
+  name: 'John Doe',
+  age: 30,
+  email: 'john.doe@example.com',
+  address: {
+    street: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '12345',
+    country: 'USA'
+  },
+  hobbies: ['reading', 'writing', 'coding']
+};
+
+
 @Component({
   selector: 'app-property-panel',
   templateUrl: './property-panel.component.html',
