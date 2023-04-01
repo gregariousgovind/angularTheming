@@ -3,62 +3,65 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-property-panel',
   template: `
-    <form #form="ngForm" (ngSubmit)="onSubmit()">
-      <ng-container *ngTemplateOutlet="propertyTemplate; context: { data: data }"></ng-container>
-      <button type="submit" [disabled]="!form.valid">Submit</button>
+    <form #propertyPanelForm="ngForm" (ngSubmit)="onSubmitForm()">
+      <ul>
+        <ng-container *ngFor="let item of objectKeys(data)">
+          <li>
+            <label [attr.for]="item">{{ item }}</label>
+            <ng-container [ngSwitch]="getType(data[item])">
+              <ng-container *ngSwitchCase="'object'">
+                <ul>
+                  <app-property-panel
+                    *ngIf="data[item]"
+                    [data]="data[item]"
+                    (onSubmit)="updateItem(item, $event)">
+                  </app-property-panel>
+                </ul>
+              </ng-container>
+              <ng-container *ngSwitchCase="'array'">
+                <select id="{{ item }}" name="{{ item }}" [(ngModel)]="data[item]">
+                  <option *ngFor="let option of data[item]" [value]="option.value">{{ option.label }}</option>
+                </select>
+              </ng-container>
+              <ng-container *ngSwitchCase="'boolean'">
+                <input type="checkbox" id="{{ item }}" name="{{ item }}" [(ngModel)]="data[item]">
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <input type="{{ getType(data[item]) }}" id="{{ item }}" name="{{ item }}" [(ngModel)]="data[item]">
+              </ng-container>
+            </ng-container>
+          </li>
+        </ng-container>
+      </ul>
+      <button type="submit">Save</button>
     </form>
-
-    <ng-template #propertyTemplate let-data>
-      <div *ngFor="let property of getObjectKeys(data)">
-        <div *ngIf="isObject(data[property])">
-          <h4>{{ property }}</h4>
-          <ng-container *ngTemplateOutlet="propertyTemplate; context: { data: data[property] }"></ng-container>
-        </div>
-        <div *ngIf="!isObject(data[property])">
-          <label [for]="property">{{ property | titlecase }}</label>
-          <input
-            [type]="getInputType(data[property])"
-            [name]="property"
-            [id]="property"
-            [ngModel]="data[property]"
-            #prop="ngModel"
-            [required]="isRequired(data[property])"
-          />
-          <div *ngIf="prop.errors?.required">This field is required</div>
-        </div>
-      </div>
-    </ng-template>
   `,
 })
 export class PropertyPanelComponent {
   @Input() data: any;
-  @Output() submit = new EventEmitter<any>();
+  @Output() onSubmit = new EventEmitter<any>();
 
-  onSubmit() {
-    this.submit.emit(this.data);
-  }
-
-  isObject(val: any) {
-    return typeof val === 'object';
-  }
-
-  getObjectKeys(obj: any) {
-    return Object.keys(obj);
-  }
-
-  getInputType(val: any) {
-    if (typeof val === 'number') {
-      return 'number';
-    } else if (typeof val === 'boolean') {
-      return 'checkbox';
-    } else if (Array.isArray(val)) {
-      return 'select';
+  getType(value: any) {
+    if (Array.isArray(value)) {
+      return 'array';
+    } else if (typeof value === 'object' && value !== null) {
+      return 'object';
+    } else if (typeof value === 'boolean') {
+      return 'boolean';
     } else {
       return 'text';
     }
   }
 
-  isRequired(val: any) {
-    return val === '' || val === null || val === undefined;
+  objectKeys(obj: any) {
+    return Object.keys(obj);
+  }
+
+  updateItem(itemKey: string, updatedItem: any) {
+    this.data[itemKey] = updatedItem;
+  }
+
+  onSubmitForm() {
+    this.onSubmit.emit(this.data);
   }
 }
