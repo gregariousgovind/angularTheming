@@ -9,8 +9,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <app-property-panel [data]="data"></app-property-panel>
       </ul>
       <button type="button" (click)="onSubmit()">Save</button>
-      <hr>
-      <pre>{{ data | json }}</pre>
+      <ng-container *ngIf="updatedData">
+        <hr>
+        <pre>{{ updatedData | json }}</pre>
+      </ng-container>
     </div>
   `,
   styleUrls: ['./property-panel-container.component.scss'],
