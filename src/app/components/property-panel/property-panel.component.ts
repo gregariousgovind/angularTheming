@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core';
             </ng-container>
             <ng-container *ngSwitchCase="'array'">
               <select id="{{ item }}" name="{{ item }}" [(ngModel)]="data[item]">
-                <option *ngFor="let option of data[item]" [value]="option.value">{{ option.label }}</option>
+                <option *ngFor="let option of data[item]" [value]="option">{{ option }}</option>
               </select>
             </ng-container>
             <ng-container *ngSwitchCase="'boolean'">
