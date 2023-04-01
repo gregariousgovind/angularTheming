@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="property-panel">
+    <ul>
+      <ng-container *ngFor="let key of objectKeys(data)">
+        <li>
+          <label for="{{ key }}">{{ key }}</label>
+          <ng-container [ngSwitch]="getType(data[key])">
+            <ng-container *ngSwitchCase="'string'">
+              <input
+                type="text"
+                id="{{ key }}"
+                name="{{ key }}"
+                [(ngModel)]="data[key]"
+              />
+            </ng-container>
+            <ng-container *ngSwitchCase="'number'">
+              <input
+                type="number"
+                id="{{ key }}"
+                name="{{ key }}"
+                [(ngModel)]="data[key]"
+              />
+            </ng-container>
+            <ng-container *ngSwitchCase="'boolean'">
+              <input
+                type="checkbox"
+                id="{{ key }}"
+                name="{{ key }}"
+                [(ngModel)]="data[key]"
+              />
+            </ng-container>
+            <ng-container *ngSwitchCase="'object'">
+              <button class="toggle-button" (click)="toggleExpand(key)">
+                {{ isExpanded(key) ? '-' : '+' }}
+              </button>
+              <label for="{{ key }}">{{ key }}</label>
+              <ul *ngIf="isExpanded(key)">
+                <app-property-panel [data]="data[key]"></app-property-panel>
+              </ul>
+            </ng-container>
+            <ng-container *ngSwitchCase="'array'">
+              <label for="{{ key }}">{{ key }}</label>
+              <select id="{{ key }}" name="{{ key }}" [(ngModel)]="data[key]">
+                <option
+                  *ngFor="let option of getOptions(data[key])"
+                  [ngValue]="option"
+                >
+                  {{ option }}
+                </option>
+              </select>
+            </ng-container>
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <button type="submit">Submit</button>
+</form>
