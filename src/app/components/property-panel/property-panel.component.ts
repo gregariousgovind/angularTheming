@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-property-panel',
   templateUrl: './property-panel.component.html',
-  styleUrls: ['./property-panel.component.css']
+  styleUrls: ['./property-panel.component.scss'],
 })
 export class PropertyPanelComponent {
   @Input() data: any;
@@ -12,7 +12,7 @@ export class PropertyPanelComponent {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.form = this.createForm(this.data);
