@@ -1,128 +1,64 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
-
-const  data = {
-  name: 'John Doe',
-  age: 30,
-  email: 'john.doe@example.com',
-  address: {
-    street: '123 Main St',
-    city: 'Anytown',
-    state: 'CA',
-    zip: '12345',
-    country: 'USA'
-  },
-  hobbies: ['reading', 'writing', 'coding']
-};
-
 
 @Component({
   selector: 'app-property-panel',
-  templateUrl: './property-panel.component.html',
-  styleUrls: ['./property-panel.component.scss'],
+  template: `
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <ng-container *ngTemplateOutlet="propertyTemplate; context: { data: data }"></ng-container>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+
+    <ng-template #propertyTemplate let-data>
+      <div *ngFor="let property of getObjectKeys(data)">
+        <div *ngIf="isObject(data[property])">
+          <h4>{{ property }}</h4>
+          <ng-container *ngTemplateOutlet="propertyTemplate; context: { data: data[property] }"></ng-container>
+        </div>
+        <div *ngIf="!isObject(data[property])">
+          <label [for]="property">{{ property | titlecase }}</label>
+          <input
+            [type]="getInputType(data[property])"
+            [name]="property"
+            [id]="property"
+            [ngModel]="data[property]"
+            #prop="ngModel"
+            [required]="isRequired(data[property])"
+          />
+          <div *ngIf="prop.errors?.required">This field is required</div>
+        </div>
+      </div>
+    </ng-template>
+  `,
 })
 export class PropertyPanelComponent {
   @Input() data: any;
-  @Output() updated = new EventEmitter<any>();
-
-  form: FormGroup;
-
-  constructor() {}
-
-  ngOnInit() {
-    this.form = this.createForm(this.data);
-  }
+  @Output() submit = new EventEmitter<any>();
 
   onSubmit() {
-    this.updated.emit(this.form.value);
+    this.submit.emit(this.data);
   }
 
-  createForm(data: any): FormGroup {
-    const formGroup = new FormGroup({});
-
-    for (const key of Object.keys(data)) {
-      const value = data[key];
-      let formControl: FormControl;
-
-      switch (this.getType(value)) {
-        case 'string':
-          formControl = new FormControl(value);
-          break;
-        case 'number':
-          formControl = new FormControl(value);
-          break;
-        case 'boolean':
-          formControl = new FormControl(value);
-          break;
-        case 'object':
-          formControl = new FormControl(this.createForm(value));
-          break;
-        case 'array':
-          formControl = new FormControl(value);
-          break;
-      }
-
-      formGroup.addControl(key, formControl);
-    }
-
-    return formGroup;
-  }
-
-  getType(val: any): string {
-    if (typeof val === 'string') {
-      return 'string';
-    } else if (typeof val === 'number') {
-      return 'number';
-    } else if (typeof val === 'boolean') {
-      return 'boolean';
-    } else if (Array.isArray(val)) {
-      return 'array';
-    } else {
-      return 'object';
-    }
-  }
-
-  objectKeys(obj: any): string[] {
-    return Object.keys(obj);
-  }
-
-  toggleExpand(key: string) {
-    this.isExpandedMap[key] = !this.isExpandedMap[key];
-  }
-
-  isExpanded(key: string): boolean {
-    return this.isExpandedMap[key];
-  }
-
-  getOptions(arr: any[]): string[] {
-    if (arr.length === 0) {
-      return [];
-    } else if (typeof arr[0] === 'string') {
-      return arr;
-    } else {
-      return Object.keys(arr[0]);
-    }
-  }
-
-  isObject(val: any): boolean {
+  isObject(val: any) {
     return typeof val === 'object';
   }
 
-  isPrimitive(val: any): boolean {
-    return !this.isObject(val) && !Array.isArray(val);
+  getObjectKeys(obj: any) {
+    return Object.keys(obj);
   }
 
-  isFormControl(val: any): boolean {
-    return val instanceof FormControl;
+  getInputType(val: any) {
+    if (typeof val === 'number') {
+      return 'number';
+    } else if (typeof val === 'boolean') {
+      return 'checkbox';
+    } else if (Array.isArray(val)) {
+      return 'select';
+    } else {
+      return 'text';
+    }
   }
 
-  isFormGroup(val: any): boolean {
-    return val instanceof FormGroup;
+  isRequired(val: any) {
+    return val === '' || val === null || val === undefined;
   }
-
-  isFormArray(val: any): boolean {
-    return val instanceof FormArray;
-  }
-
-  isExpandedMap: { [key: string]: boolean } = {};
 }

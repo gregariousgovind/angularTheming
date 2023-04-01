@@ -6,12 +6,12 @@ import { StatusCardsComponent } from './components/status-cards/status-cards.com
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { FieldWidgetComponent } from './components/field-widget/field-widget.component';
-import { PropertyPanelComponent } from './components/property-panel/property-panel.component';
+import { PropertyPanelContainerComponent } from './components/property-panel-container/property-panel-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'propertyPanel', pathMatch: 'full' },
   { path: 'landing', component: LandingPageComponent },
-  { path: 'propertyPanel', component: PropertyPanelComponent },
+  { path: 'propertyPanel', component: PropertyPanelContainerComponent },
   { path: 'resume', component: ResumeComponent },
   {
     path: 'theming',
