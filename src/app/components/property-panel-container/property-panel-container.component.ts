@@ -4,9 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <h1>Property Panel</h1>
-    <app-property-panel [data]="data" (onSubmit)="onSubmit($event)"></app-property-panel>
+    <app-property-panel [data]="data"></app-property-panel>
+    <button type="button" (click)="onSubmit()">Save</button>
     <hr>
-    <pre>{{ data | json }}</pre>
+    <pre>{{ updatedData | json }}</pre>
   `,
 })
 export class PropertyPanelContainerComponent {
@@ -25,8 +26,7 @@ export class PropertyPanelContainerComponent {
 
   updatedData: any;
 
-  onSubmit(data: any) {
-    this.updatedData = data;
-    console.log(this.updatedData);
+  onSubmit() {
+    this.updatedData = this.data;
   }
 }
