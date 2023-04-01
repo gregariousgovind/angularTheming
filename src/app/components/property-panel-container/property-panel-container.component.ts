@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <h1>Property Panel</h1>
     <app-property-panel [data]="data" (onSubmit)="onSubmit($event)"></app-property-panel>
     <hr>
-    <pre>{{ updatedData | json }}</pre>
+    <pre>{{ data | json }}</pre>
   `,
 })
 export class PropertyPanelContainerComponent {
