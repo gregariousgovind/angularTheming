@@ -20,21 +20,26 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class PropertyPanelContainerComponent {
   data = {
-    name: {
-      fname: 'Govind',
-      lname: {
-        m: 'Singh',
-        l: 'Chauhan',
-      },
-    },
-    age: 25,
+    name: 'Govind Singh Chauhan',
+    age: 24,
     address: {
-      street: '123 Main St',
-      city: 'Anytown',
-      state: 'CA',
-      zip: '12345',
+      street: '271',
+      city: 'Kanpur',
+      state: 'UP',
+      zip: '208021',
     },
-    hobbies: ['reading', 'swimming', 'gardening'],
+    phoneNumbers: [
+      {
+        type: 'home',
+        number: '555-1234',
+      },
+      {
+        type: 'work',
+        number: '555-5678',
+      },
+    ],
+    hobbies: ['COC', 'CodePen', 'Travelling'],
+    email: 'govind.chauhan@example.com',
     active: true,
   };
 
