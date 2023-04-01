@@ -10,7 +10,7 @@
       </ng-container>
       <ng-container *ngSwitchCase="'array'">
         <ng-container [ngSwitch]="getType(data[item][0])">
-          <ul>
+          <ul data-type="array">
             <app-property-panel *ngIf="data[item]" [data]="data[item]">
             </app-property-panel>
           </ul>

@@ -32,6 +32,16 @@
       content: attr(data-name) '{';
     }
 
+    &[data-type='array'] {
+      &:before {
+        content: '[';
+      }
+
+      &:after {
+        content: ']';
+      }
+    }
+
     &:after {
       content: '}';
     }
