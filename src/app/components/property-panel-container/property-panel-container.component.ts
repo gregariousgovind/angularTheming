@@ -10,8 +10,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
       </ul>
       <button type="button" (click)="onSubmit()">Save</button>
       <hr>
+      <pre>{{ data | json }}</pre>
     </div>
-    <pre>{{ updatedData | json }}</pre>
   `,
   styleUrls: ['./property-panel-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
