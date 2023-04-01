@@ -1,23 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
     <h1>Property Panel</h1>
-    <app-property-panel [data]="data"></app-property-panel>
+    <ul>
+      <app-property-panel [data]="data"></app-property-panel>
+    </ul>
     <button type="button" (click)="onSubmit()">Save</button>
     <hr>
     <pre>{{ updatedData | json }}</pre>
   `,
+  styles: [
+    `
+    ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+    
+    ul:before {
+      content: "{"
+    }
+  
+    ul:after {
+      content: "}"
+    }
+  `,
+  ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PropertyPanelContainerComponent {
   data = {
     name: {
-      fname: "Govind",
+      fname: 'Govind',
       lname: {
-        m: "Singh",
-        l: "Chauhan"
-      }
+        m: 'Singh',
+        l: 'Chauhan',
+      },
     },
     age: 25,
     address: {
