@@ -37,12 +37,24 @@
     }
 
     li {
-      padding-bottom: 5px;
+      padding-bottom: 8px;
+      font-size: 14px;
+
       label {
         padding-right: 5px;
         font-weight: 600;
       }
+
+      input {
+        padding: 2px;
+      }
     }
+  }
+
+  button {
+    height: 36px;
+    padding: 8px 16px;
+    margin-right: 10px;
   }
 
   pre {

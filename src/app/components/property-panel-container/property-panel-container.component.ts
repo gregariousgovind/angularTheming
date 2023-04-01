@@ -8,10 +8,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <ul [attr.data-name]="'config: '">
         <app-property-panel [data]="data"></app-property-panel>
       </ul>
-      <button type="button" (click)="onSubmit()">Save</button>
-      <ng-container *ngIf="updatedData">
+      <button type="button" (click)="showJSON()">{{dataShown ? 'Hide' : 'Show'}} JSON</button>
+      <button type="button" (click)="onSubmit()">Submit</button>
+      <ng-container *ngIf="dataShown">
         <hr>
-        <pre>{{ updatedData | json }}</pre>
+        <pre>{{ data | json }}</pre>
       </ng-container>
     </div>
   `,
@@ -43,9 +44,13 @@ export class PropertyPanelContainerComponent {
     active: true,
   };
 
-  updatedData: any;
+  dataShown: boolean = false;
+
+  showJSON() {
+    this.dataShown = !this.dataShown;
+  }
 
   onSubmit() {
-    this.updatedData = this.data;
+    console.log(this.data);
   }
 }
