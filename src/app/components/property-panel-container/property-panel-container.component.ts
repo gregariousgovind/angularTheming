@@ -5,7 +5,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   template: `
     <div class="property-panel-container">
       <h1>Property Panel</h1>
-      <ul [attr.data-name]="'config:'">
+      <ul [attr.data-name]="'config: '">
         <app-property-panel [data]="data"></app-property-panel>
       </ul>
       <button type="button" (click)="onSubmit()">Save</button>
