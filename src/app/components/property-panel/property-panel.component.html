@@ -1,6 +1,6 @@
 <ng-container *ngFor="let item of objectKeys(data)">
   <li>
-    <label [attr.for]="item">{{ item }}</label>
+    <label [attr.for]="item">{{ item }}:</label>
     <ng-container [ngSwitch]="getType(data[item])">
       <ng-container *ngSwitchCase="'object'">
         <ul>

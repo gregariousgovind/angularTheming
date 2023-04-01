@@ -1,0 +1,38 @@
+.property-panel-container {
+  margin: 20px;
+
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0 10px;
+    border: 2px solid;
+    line-height: 18px;
+    margin-top: 0;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      font-weight: 600;
+      transform: translateX(-8px);
+    }
+
+    &:before {
+      content: attr(data-name) '{';
+    }
+
+    &:after {
+      content: '}';
+    }
+
+    li {
+      padding-bottom: 5px;
+      label {
+        padding-right: 5px;
+      }
+    }
+  }
+}

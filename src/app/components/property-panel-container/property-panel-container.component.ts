@@ -1,32 +1,19 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-property-panel-container',
   template: `
-    <h1>Property Panel</h1>
-    <ul>
-      <app-property-panel [data]="data"></app-property-panel>
-    </ul>
-    <button type="button" (click)="onSubmit()">Save</button>
-    <hr>
+    <div class="property-panel-container">
+      <h1>Property Panel</h1>
+      <ul [attr.data-name]="'config:'">
+        <app-property-panel [data]="data"></app-property-panel>
+      </ul>
+      <button type="button" (click)="onSubmit()">Save</button>
+      <hr>
+    </div>
     <pre>{{ updatedData | json }}</pre>
   `,
-  styles: [
-    `
-    ul {
-      list-style: none;
-      padding-left: 10px;
-    }
-    
-    ul:before {
-      content: "{"
-    }
-  
-    ul:after {
-      content: "}"
-    }
-  `,
-  ],
+  styleUrls: ['./property-panel-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class PropertyPanelContainerComponent {
