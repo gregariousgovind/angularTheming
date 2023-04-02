@@ -16,7 +16,7 @@
     <app-property-panel #panel [data]="data"></app-property-panel>
   </ul>
   <button type="button" (click)="showJSON()">
-    {{ dataShown ? 'Hide' : 'Show' }} JSON
+    {{ dataShown ? 'Hide' : 'Show & Submit' }} JSON
   </button>
   <button *ngIf="dataShown" type="button" (click)="handleSubmit()">
     Submit

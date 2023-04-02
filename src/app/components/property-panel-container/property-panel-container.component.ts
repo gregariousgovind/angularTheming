@@ -8,44 +8,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class PropertyPanelContainerComponent {
   data = {
-    name: 'John',
-    age: '',
-    email: 'john@example.com',
-    address: {
-      street: '123 Main St',
-      city: '',
-      state: 'CA',
-      zip: null,
-      subaddress: {
-        apt: '',
-        building: null,
-      },
-      phones: ['', null, '555-1234'],
-      contacts: [
-        { name: 'Jane', phone: '' },
-        { name: 'Bob', phone: '555-5678' },
-        { name: 'Tom', phone: null },
-      ],
-    },
-    phone: {
-      home: '',
-      work: '',
-      mobile: '555-1234',
-    },
-    hobbies: ['reading', '', null, 'swimming'],
-    friends: [
-      {
-        name: 'Jane',
-        age: 30,
-        email: '',
-      },
-      {
-        name: 'Bob',
-        age: 25,
-        email: 'bob@example.com',
-      },
-      {},
-    ],
+    text: 'test button',
+    backgroundColor: '#007bff',
+    textColor: '#ffffff',
+    icon: { name: 'star' },
+    disabled: false,
+    onClick: 'clickEvent',
   };
 
   dataShown: boolean = false;
