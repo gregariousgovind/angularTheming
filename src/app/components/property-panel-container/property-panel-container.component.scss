@@ -24,6 +24,8 @@
     margin-top: 0;
 
     &.object-view {
+      padding: 5px 15px;
+
       ul:before,
       &:before {
         content: attr(data-name) '{';
@@ -47,6 +49,33 @@
     }
 
     &.property-view {
+      padding: 10px;
+
+      details {
+        border: 1px solid #c2c2c2;
+
+        summary {
+          padding: 8px;
+          border-bottom: 1px solid #c2c2c2;
+
+          label {
+            padding-left: 4px;
+            text-transform: capitalize;
+          }
+        }
+
+        input {
+          margin: 5px;
+          width: calc(100% - 10px);
+          color: #1d1d1d;
+          border: 1px solid #c2c2c2;
+          outline-offset: 2px;
+        }
+
+        ul {
+          margin-top: 10px;
+        }
+      }
     }
 
     &[data-name] {
