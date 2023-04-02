@@ -1,5 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { PropertyPanelComponent } from '../property-panel/property-panel.component';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-property-panel-container',
@@ -8,8 +7,6 @@ import { PropertyPanelComponent } from '../property-panel/property-panel.compone
   encapsulation: ViewEncapsulation.None,
 })
 export class PropertyPanelContainerComponent {
-  @ViewChild('panel') propertyPanelComponent: PropertyPanelComponent;
-
   data = {
     name$: 'Govind Singh Chauhan',
     age: 24,
@@ -36,12 +33,29 @@ export class PropertyPanelContainerComponent {
 
   dataShown: boolean = false;
   isObjectView: boolean = false;
+  updatedData: any;
 
   showJSON() {
     this.dataShown = !this.dataShown;
+    this.dataShown && this.handleSubmit();
   }
 
   handleSubmit() {
-    console.log(this.propertyPanelComponent.getUpdatedConfig(), this.data);
+    this.updatedData = JSON.parse(JSON.stringify(this.data));
+    this.removeDollarSigns(this.updatedData);
+  }
+
+  removeDollarSigns(obj) {
+    if (obj && typeof obj === 'object') {
+      Object.keys(obj).forEach((key) => {
+        const newKey = key.replace(/\$/g, '');
+        if (newKey !== key) {
+          obj[newKey] = obj[key];
+          delete obj[key];
+        }
+        this.removeDollarSigns(obj[newKey]);
+      });
+    }
+    return obj;
   }
 }
