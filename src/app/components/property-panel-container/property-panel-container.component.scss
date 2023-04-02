@@ -70,6 +70,14 @@
           color: #1d1d1d;
           border: 1px solid #c2c2c2;
           outline-offset: 2px;
+
+          &:disabled {
+            background: #c2c2c2;
+          }
+
+          &:required {
+            background: #ffcc0080;
+          }
         }
 
         ul {

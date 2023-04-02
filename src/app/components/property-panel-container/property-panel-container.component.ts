@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { PropertyPanelComponent } from '../property-panel/property-panel.component';
 
 @Component({
   selector: 'app-property-panel-container',
@@ -7,8 +8,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class PropertyPanelContainerComponent {
+  @ViewChild('panel') propertyPanelComponent: PropertyPanelComponent;
+
   data = {
-    name: 'Govind Singh Chauhan',
+    name$: 'Govind Singh Chauhan',
     age: 24,
     address: {
       street: '271',
@@ -27,7 +30,7 @@ export class PropertyPanelContainerComponent {
       },
     ],
     hobbies: ['COC', 'CodePen', 'Travelling'],
-    email: 'govind.chauhan@example.com',
+    $email: 'govind.chauhan@example.com',
     active: true,
   };
 
@@ -38,7 +41,7 @@ export class PropertyPanelContainerComponent {
     this.dataShown = !this.dataShown;
   }
 
-  onSubmit() {
-    console.log(this.data);
+  handleSubmit() {
+    console.log(this.propertyPanelComponent.getUpdatedConfig(), this.data);
   }
 }

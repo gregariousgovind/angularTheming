@@ -1,8 +1,8 @@
 <ng-container *ngFor="let item of objectKeys(data)">
   <li>
-    <details attr.open="{{false}}">
+    <details open>
       <summary>
-        <label [attr.for]="item">{{ item }}:</label>
+        <label [attr.for]="item">{{ getLabel(item) }}:</label>
       </summary>
       <ng-container [ngSwitch]="getType(data[item])">
         <ng-container *ngSwitchCase="'object'">
@@ -24,6 +24,8 @@
             type="checkbox"
             id="{{ item }}"
             name="{{ item }}"
+            [disabled]="item.endsWith('$')"
+            [required]="item.startsWith('$')"
             [(ngModel)]="data[item]"
           />
         </ng-container>
@@ -32,6 +34,8 @@
             type="{{ getType(data[item]) }}"
             id="{{ item }}"
             name="{{ item }}"
+            [disabled]="item.endsWith('$')"
+            [required]="item.startsWith('$')"
             [(ngModel)]="data[item]"
           />
         </ng-container>

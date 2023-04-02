@@ -13,12 +13,12 @@
     [attr.data-name]="'config: '"
     [ngClass]="{ 'object-view': isObjectView, 'property-view': !isObjectView }"
   >
-    <app-property-panel [data]="data"></app-property-panel>
+    <app-property-panel #panel [data]="data"></app-property-panel>
   </ul>
   <button type="button" (click)="showJSON()">
     {{ dataShown ? 'Hide' : 'Show' }} JSON
   </button>
-  <button type="button" (click)="onSubmit()">Submit</button>
+  <button type="button" (click)="handleSubmit()">Submit</button>
   <ng-container *ngIf="dataShown">
     <hr />
     <pre>{{ data | json }}</pre>
