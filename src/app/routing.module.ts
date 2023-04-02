@@ -9,7 +9,7 @@ import { FieldWidgetComponent } from './components/field-widget/field-widget.com
 import { PropertyPanelContainerComponent } from './components/property-panel-container/property-panel-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'propertyPanel', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: LandingPageComponent },
   { path: 'propertyPanel', component: PropertyPanelContainerComponent },
   { path: 'resume', component: ResumeComponent },
