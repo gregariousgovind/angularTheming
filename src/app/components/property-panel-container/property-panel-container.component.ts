@@ -8,27 +8,44 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class PropertyPanelContainerComponent {
   data = {
-    name$: 'Govind Singh Chauhan',
-    age: 24,
+    name: 'John',
+    age: '',
+    email: 'john@example.com',
     address: {
-      street: '271',
-      city: 'Kanpur',
-      state: 'UP',
-      zip: '208021',
+      street: '123 Main St',
+      city: '',
+      state: 'CA',
+      zip: null,
+      subaddress: {
+        apt: '',
+        building: null,
+      },
+      phones: ['', null, '555-1234'],
+      contacts: [
+        { name: 'Jane', phone: '' },
+        { name: 'Bob', phone: '555-5678' },
+        { name: 'Tom', phone: null },
+      ],
     },
-    phoneNumbers: [
+    phone: {
+      home: '',
+      work: '',
+      mobile: '555-1234',
+    },
+    hobbies: ['reading', '', null, 'swimming'],
+    friends: [
       {
-        type: 'home',
-        number: '555-1234',
+        name: 'Jane',
+        age: 30,
+        email: '',
       },
       {
-        type: 'work',
-        number: '555-5678',
+        name: 'Bob',
+        age: 25,
+        email: 'bob@example.com',
       },
+      {},
     ],
-    hobbies: ['COC', 'CodePen', 'Travelling'],
-    $email: 'govind.chauhan@example.com',
-    active: true,
   };
 
   dataShown: boolean = false;
@@ -43,6 +60,7 @@ export class PropertyPanelContainerComponent {
   handleSubmit() {
     this.updatedData = JSON.parse(JSON.stringify(this.data));
     this.removeDollarSigns(this.updatedData);
+    this.removeEmpty(this.updatedData);
   }
 
   removeDollarSigns(obj) {
@@ -56,6 +74,44 @@ export class PropertyPanelContainerComponent {
         this.removeDollarSigns(obj[newKey]);
       });
     }
+    return obj;
+  }
+
+  removeEmpty(obj) {
+    const isEmpty = (value) =>
+      value === '' || value === null || value === undefined;
+
+    const isArray = (value) => Array.isArray(value);
+
+    const isObject = (value) => typeof value === 'object';
+
+    const removeEmptyArrayElements = (arr) =>
+      arr.filter(
+        (value) =>
+          !isEmpty(value) &&
+          (isObject(value)
+            ? Object.keys(this.removeEmpty(value)).length !== 0
+            : true)
+      );
+
+    const removeEmptyObjectProperties = (obj) =>
+      Object.keys(obj).forEach((key) =>
+        isEmpty(obj[key])
+          ? delete obj[key]
+          : isArray(obj[key])
+          ? (obj[key] = removeEmptyArrayElements(obj[key]))
+          : isObject(obj[key])
+          ? (removeEmptyObjectProperties(obj[key]),
+            Object.keys(obj[key]).length === 0 && delete obj[key])
+          : null
+      );
+
+    isArray(obj)
+      ? (obj = removeEmptyArrayElements(obj))
+      : isObject(obj)
+      ? removeEmptyObjectProperties(obj)
+      : null;
+
     return obj;
   }
 }

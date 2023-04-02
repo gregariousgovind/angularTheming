@@ -18,7 +18,9 @@
   <button type="button" (click)="showJSON()">
     {{ dataShown ? 'Hide' : 'Show' }} JSON
   </button>
-  <button type="button" (click)="handleSubmit()">Submit</button>
+  <button *ngIf="dataShown" type="button" (click)="handleSubmit()">
+    Submit
+  </button>
   <ng-container *ngIf="dataShown">
     <hr />
     <pre>{{ updatedData | json }}</pre>
