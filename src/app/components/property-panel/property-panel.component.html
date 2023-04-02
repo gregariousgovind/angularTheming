@@ -1,37 +1,41 @@
 <ng-container *ngFor="let item of objectKeys(data)">
   <li>
-    <label [attr.for]="item">{{ item }}:</label>
-    <ng-container [ngSwitch]="getType(data[item])">
-      <ng-container *ngSwitchCase="'object'">
-        <ul>
-          <app-property-panel *ngIf="data[item]" [data]="data[item]">
-          </app-property-panel>
-        </ul>
-      </ng-container>
-      <ng-container *ngSwitchCase="'array'">
-        <ng-container [ngSwitch]="getType(data[item][0])">
-          <ul data-type="array">
+    <details attr.open="{{false}}">
+      <summary>
+        <label [attr.for]="item">{{ item }}:</label>
+      </summary>
+      <ng-container [ngSwitch]="getType(data[item])">
+        <ng-container *ngSwitchCase="'object'">
+          <ul>
             <app-property-panel *ngIf="data[item]" [data]="data[item]">
             </app-property-panel>
           </ul>
         </ng-container>
+        <ng-container *ngSwitchCase="'array'">
+          <ng-container [ngSwitch]="getType(data[item][0])">
+            <ul data-type="array">
+              <app-property-panel *ngIf="data[item]" [data]="data[item]">
+              </app-property-panel>
+            </ul>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="'boolean'">
+          <input
+            type="checkbox"
+            id="{{ item }}"
+            name="{{ item }}"
+            [(ngModel)]="data[item]"
+          />
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <input
+            type="{{ getType(data[item]) }}"
+            id="{{ item }}"
+            name="{{ item }}"
+            [(ngModel)]="data[item]"
+          />
+        </ng-container>
       </ng-container>
-      <ng-container *ngSwitchCase="'boolean'">
-        <input
-          type="checkbox"
-          id="{{ item }}"
-          name="{{ item }}"
-          [(ngModel)]="data[item]"
-        />
-      </ng-container>
-      <ng-container *ngSwitchDefault>
-        <input
-          type="{{ getType(data[item]) }}"
-          id="{{ item }}"
-          name="{{ item }}"
-          [(ngModel)]="data[item]"
-        />
-      </ng-container>
-    </ng-container>
+    </details>
   </li>
 </ng-container>

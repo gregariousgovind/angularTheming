@@ -2,20 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-property-panel-container',
-  template: `
-    <div class="property-panel-container">
-      <h1>Property Panel</h1>
-      <ul [attr.data-name]="'config: '">
-        <app-property-panel [data]="data"></app-property-panel>
-      </ul>
-      <button type="button" (click)="showJSON()">{{dataShown ? 'Hide' : 'Show'}} JSON</button>
-      <button type="button" (click)="onSubmit()">Submit</button>
-      <ng-container *ngIf="dataShown">
-        <hr>
-        <pre>{{ data | json }}</pre>
-      </ng-container>
-    </div>
-  `,
+  templateUrl: './property-panel-container.component.html',
   styleUrls: ['./property-panel-container.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
@@ -45,6 +32,7 @@ export class PropertyPanelContainerComponent {
   };
 
   dataShown: boolean = false;
+  isObjectView: boolean = false;
 
   showJSON() {
     this.dataShown = !this.dataShown;

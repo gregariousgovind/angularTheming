@@ -1,0 +1,26 @@
+<div class="property-panel-container">
+  <div class="panel-header">
+    <h1>Property Panel</h1>
+    <div class="panel-view-btns">
+      <button type="button" (click)="isObjectView = true">Object View</button>
+      <button type="button" (click)="isObjectView = false">
+        Property View
+      </button>
+    </div>
+  </div>
+  <hr />
+  <ul
+    [attr.data-name]="'config: '"
+    [ngClass]="{ 'object-view': isObjectView, 'property-view': !isObjectView }"
+  >
+    <app-property-panel [data]="data"></app-property-panel>
+  </ul>
+  <button type="button" (click)="showJSON()">
+    {{ dataShown ? 'Hide' : 'Show' }} JSON
+  </button>
+  <button type="button" (click)="onSubmit()">Submit</button>
+  <ng-container *ngIf="dataShown">
+    <hr />
+    <pre>{{ data | json }}</pre>
+  </ng-container>
+</div>
