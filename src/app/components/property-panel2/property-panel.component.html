@@ -1,0 +1,29 @@
+<form #form="ngForm" (ngSubmit)="submit.emit(data)">
+  <ul>
+    <li *ngFor="let key of keys">
+      <label for="{{ key }}">{{ key }}</label>
+      <div *ngIf="isObject(data[key])">
+        <app-property-panel
+          [data]="data[key]"
+          (submit)="onSubmit($event)"
+        ></app-property-panel>
+      </div>
+      <div *ngIf="isArray(data[key])">
+        <select id="{{ key }}" name="{{ key }}" [(ngModel)]="data[key]">
+          <option *ngFor="let item of data[key]" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div *ngIf="!isObject(data[key]) && !isArray(data[key])">
+        <input
+          id="{{ key }}"
+          name="{{ key }}"
+          [(ngModel)]="data[key]"
+          type="{{ getDataType(data[key]) }}"
+        />
+      </div>
+    </li>
+  </ul>
+  <button type="submit">Submit</button>
+</form>
