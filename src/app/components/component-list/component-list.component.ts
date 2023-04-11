@@ -10,7 +10,7 @@ interface ComponentItem {
   templateUrl: './component-panel.component.html',
   styleUrls: ['./component-panel.component.scss'],
 })
-export class ComponentPanelComponent {
+export class ComponentListComponent {
   components: ComponentItem[] = [
     { name: 'Component 1', icon: 'M16 18.2V5.8L7.6 12z' },
     { name: 'Component 2', icon: 'M4 4h16v4H4zm0 6h16v4H4zm0 6h16v4H4z' },
