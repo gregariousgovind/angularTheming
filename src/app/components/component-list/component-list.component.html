@@ -1,24 +1,28 @@
-<div class="panel">
-  <h2>List of Angular Components</h2>
+<div class="panel" [class.collapsed]="isCollapsed">
+  <div class="header">
+    <h2>Components</h2>
+    <button class="expand-button" (click)="toggleCollapse()">
+      <span *ngIf="isCollapsed">Expand</span>
+      <span *ngIf="!isCollapsed">Collapse</span>
+      <svg viewBox="0 0 24 24">
+        <path *ngIf="isCollapsed" d="M7 10l5 5 5-5z"></path>
+        <path *ngIf="!isCollapsed" d="M10 7l5 5-5 5z"></path>
+      </svg>
+    </button>
+  </div>
   <ul>
-    <li
-      *ngFor="
-        let component of ['Component 1', 'Component 2', 'Component 3'];
-        let i = index
-      "
-    >
+    <li *ngFor="let component of components">
       <button
         class="component-button"
-        [ngClass]="{ selected: selectedComponentIndex === i }"
-        (click)="selectComponent(i)"
+        [class.selected]="selectedComponent === component"
+        (click)="selectComponent(component)"
       >
         <div class="icon-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 4v16h16V4H4zm14 14H6V6h12v12z" />
+          <svg viewBox="0 0 24 24">
+            <path [attr.d]="component.icon"></path>
           </svg>
         </div>
-        <span>{{ component }}</span>
+        <span>{{ component.name }}</span>
       </button>
     </li>
   </ul>
