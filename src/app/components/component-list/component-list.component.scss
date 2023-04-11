@@ -32,13 +32,15 @@
   .header {
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 40px;
     padding: 0 10px;
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px solid #dddddd;
 
     h2 {
       margin: 0;
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #32588d;
     }
 
     button.expand-button {
@@ -52,9 +54,9 @@
       cursor: pointer;
 
       svg {
-        fill: #000;
-        height: 20px;
-        width: 20px;
+        fill: #32588d;
+        height: 24px;
+        width: 24px;
         transform: rotate(180deg);
         transition: all 0.2s ease;
 
@@ -81,24 +83,39 @@
         justify-content: center;
         width: 90px;
         height: 100px;
+        line-height: 14px;
         padding: 10px;
         border: none;
-        border-radius: 12px;
+        border-radius: 8px;
         background: none;
+        color: #5b5b5b;
         cursor: pointer;
         transition: all 0.2s ease;
         overflow: hidden;
         box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px 1px;
 
-        &:hover {
-          box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px 2px;
-          transform: scale(1.04);
+        &:focus {
+          outline: 2px solid #8e45fc;
+          outline-offset: 2px;
         }
 
         &.selected {
-          background-color: #f3f7fc;
-          transform: scale(1.08);
-          font-weight: bold;
+          background-color: #32588d;
+          color: #ffffff;
+          transform: scale(1.02);
+
+          .icon-container {
+            border-color: #ffffff;
+
+            svg {
+              fill: #ffffff;
+            }
+          }
+        }
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px 2px;
+          transform: scale(1.04);
         }
 
         .icon-container {
@@ -107,17 +124,17 @@
           justify-content: center;
           height: 60%;
           width: 100%;
-          border-bottom: 1px solid #bbbbbb;
+          border-bottom: 1px solid #e0e0e0;
 
           svg {
-            fill: #000;
+            fill: #5b5b5b;
             height: 24px;
             width: 24px;
           }
         }
 
         span {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 500;
           padding: 5px;
         }
