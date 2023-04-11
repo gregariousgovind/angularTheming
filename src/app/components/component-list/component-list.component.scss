@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 20px);
-  width: 210px;
+  width: 200px;
   margin: 10px;
   background-color: #ffffff;
   border-radius: 4px;
@@ -81,10 +81,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 90px;
-        height: 100px;
+        width: 85px;
+        height: 95px;
         line-height: 14px;
-        padding: 10px;
+        padding: 0;
         border: none;
         border-radius: 8px;
         background: none;
@@ -101,6 +101,8 @@
 
         &.selected {
           background-color: #32588d;
+          outline: 1px solid #32588d;
+          outline-offset: 2px;
           color: #ffffff;
           transform: scale(1.02);
 
