@@ -2,11 +2,11 @@
   <div class="header">
     <h2>Components</h2>
     <button class="expand-button" (click)="toggleCollapse()">
-      <span *ngIf="isCollapsed">Expand</span>
-      <span *ngIf="!isCollapsed">Collapse</span>
-      <svg viewBox="0 0 24 24">
-        <path *ngIf="isCollapsed" d="M7 10l5 5 5-5z"></path>
-        <path *ngIf="!isCollapsed" d="M10 7l5 5-5 5z"></path>
+      <span>{{ isCollapsed ? 'Expand' : 'Collapse' }}</span>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 9.5H5a1 1 0 010-2h14a1 1 0 110 2zM19 14.5H5a1 1 0 010-2h14a1 1 0 110 2z"
+        />
       </svg>
     </button>
   </div>
@@ -14,12 +14,12 @@
     <li *ngFor="let component of components">
       <button
         class="component-button"
-        [class.selected]="selectedComponent === component"
-        (click)="selectComponent(component)"
+        [class.selected]="selectedComponent === component.name"
+        (click)="select(component.name)"
       >
         <div class="icon-container">
-          <svg viewBox="0 0 24 24">
-            <path [attr.d]="component.icon"></path>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path attr.d="{{ component.icon }}" />
           </svg>
         </div>
         <span>{{ component.name }}</span>

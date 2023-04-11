@@ -7,8 +7,20 @@
   transition: all 0.2s ease;
 
   &.collapsed {
-    height: 0;
+    height: 5rem;
     padding: 0;
+
+    .header {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    .component-button span {
+      display: none;
+    }
   }
 
   .header {
@@ -16,81 +28,89 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-
-    h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+    font-size: 1.25rem;
+    font-weight: bold;
 
     .expand-button {
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
       display: flex;
       align-items: center;
-
-      span {
-        margin-right: 0.5rem;
-      }
+      justify-content: center;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      cursor: pointer;
 
       svg {
-        width: 1rem;
+        fill: #000;
         height: 1rem;
-        fill: currentColor;
-        transition: transform 0.2s ease;
+        width: 1rem;
+        margin-left: 0.5rem;
+        transform: rotate(0deg);
+        transition: all 0.2s ease;
+
+        path {
+          transition: all 0.2s ease;
+        }
       }
 
-      &:hover svg {
-        transform: scale(1.2);
+      span {
+        margin-left: 0.5rem;
+      }
+    }
+
+    &.collapsed .expand-button svg {
+      transform: rotate(180deg);
+
+      path {
+        fill: #fff;
       }
     }
   }
 
   ul {
-    list-style: none;
     margin: 0;
     padding: 0;
 
-    li {
-      margin-bottom: 0.5rem;
+    .component-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border: none;
+      background: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
 
-      &:last-child {
-        margin-bottom: 0;
+      &:hover {
+        background-color: #ddd;
       }
 
-      .component-button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
+      &.selected {
+        background-color: #ddd;
+      }
+
+      .icon-container {
         display: flex;
         align-items: center;
+        justify-content: center;
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0.5rem;
+        border: 1px solid #000;
+        border-radius: 50%;
 
-        &.selected {
-          background-color: #ccc;
+        svg {
+          fill: #000;
+          height: 1.25rem;
+          width: 1.25rem;
         }
+      }
 
-        .icon-container {
-          width: 2rem;
-          height: 2rem;
-          margin-right: 0.5rem;
-          border-radius: 0.25rem;
-          border: 2px solid #333;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          svg {
-            width: 1rem;
-            height: 1rem;
-            fill: currentColor;
-          }
-        }
-
-        span {
-          font-size: 1rem;
-          font-weight: bold;
-        }
+      span {
+        font-size: 1rem;
+        font-weight: bold;
       }
     }
   }
