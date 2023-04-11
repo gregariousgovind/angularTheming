@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-property-panel2',
   templateUrl: './property-panel.component.html',
+  styleUrls: ['./property-panel.component.scss'],
 })
 export class PropertyPanelComponent2 {
   @Input() data: any;

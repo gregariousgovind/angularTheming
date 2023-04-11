@@ -1,29 +1,29 @@
-<form #form="ngForm" (ngSubmit)="submit.emit(data)">
+<div class="panel">
+  <h2>Angular Components</h2>
   <ul>
-    <li *ngFor="let key of keys">
-      <label for="{{ key }}">{{ key }}</label>
-      <div *ngIf="isObject(data[key])">
-        <app-property-panel
-          [data]="data[key]"
-          (submit)="onSubmit($event)"
-        ></app-property-panel>
-      </div>
-      <div *ngIf="isArray(data[key])">
-        <select id="{{ key }}" name="{{ key }}" [(ngModel)]="data[key]">
-          <option *ngFor="let item of data[key]" [value]="item">
-            {{ item }}
-          </option>
-        </select>
-      </div>
-      <div *ngIf="!isObject(data[key]) && !isArray(data[key])">
-        <input
-          id="{{ key }}"
-          name="{{ key }}"
-          [(ngModel)]="data[key]"
-          type="{{ getDataType(data[key]) }}"
-        />
-      </div>
+    <li>
+      <a href="#">
+        <i class="fa fa-user"></i>
+        User Component
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-calendar"></i>
+        Calendar Component
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-chart-bar"></i>
+        Chart Component
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-envelope"></i>
+        Email Component
+      </a>
     </li>
   </ul>
-  <button type="submit">Submit</button>
-</form>
+</div>
