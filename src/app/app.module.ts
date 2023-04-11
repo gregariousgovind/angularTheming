@@ -20,7 +20,7 @@ import { CarousalComponent } from './components/carousal/carousal.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { FieldWidgetComponent } from './components/field-widget/field-widget.component';
 import { PropertyPanelComponent } from './components/property-panel/property-panel.component';
-import { PropertyPanelComponent2 } from './components/property-panel2/property-panel.component';
+import { ComponentListComponent } from './components/component-list/component-list.component';
 import { PropertyPanelContainerComponent } from './components/property-panel-container/property-panel-container.component';
 import { CommonModule } from '@angular/common';
 
@@ -52,7 +52,7 @@ import { CommonModule } from '@angular/common';
     FieldWidgetComponent,
     PropertyPanelComponent,
     PropertyPanelContainerComponent,
-    PropertyPanelComponent2,
+    ComponentListComponent,
     LayerAccessibilityDirective,
     BlockAccessibilityDirective,
     TabbableAccessibilityDirective,

@@ -1,0 +1,25 @@
+<div class="panel">
+  <h2>List of Angular Components</h2>
+  <ul>
+    <li
+      *ngFor="
+        let component of ['Component 1', 'Component 2', 'Component 3'];
+        let i = index
+      "
+    >
+      <button
+        class="component-button"
+        [ngClass]="{ selected: selectedComponentIndex === i }"
+        (click)="selectComponent(i)"
+      >
+        <div class="icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 4v16h16V4H4zm14 14H6V6h12v12z" />
+          </svg>
+        </div>
+        <span>{{ component }}</span>
+      </button>
+    </li>
+  </ul>
+</div>
