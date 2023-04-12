@@ -17,8 +17,8 @@
         (click)="select(component.name)"
       >
         <div class="icon-container">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path attr.d="{{ component.icon }}" />
+          <svg class="iconSVG" focusable="false">
+            <use [attr.xlink:href]="'#' + component.icon"></use>
           </svg>
         </div>
         <span>{{ component.name }}</span>
